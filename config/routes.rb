@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :featured_artists
+
   resources :stations
 
   resources :users

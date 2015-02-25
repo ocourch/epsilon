@@ -1,0 +1,2 @@
+module FeaturedArtistsHelper
+end

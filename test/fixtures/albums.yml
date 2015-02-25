@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  artist_id: MyString
+  album_id: MyString
+  released: 2015-02-24
+  record_label: MyString
+  genre: MyString
+
+two:
+  artist_id: MyString
+  album_id: MyString
+  released: 2015-02-24
+  record_label: MyString
+  genre: MyString

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'last_fm_search/search'
+
+  get 'last_fm_search/display'
+
   resources :reviews
 
   devise_for :users

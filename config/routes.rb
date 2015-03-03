@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get "stations/index"
+
+  devise_for :stations
+  
   resources :reviews
 
   devise_for :users

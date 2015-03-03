@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :stations
+  
+  devise_for :stations, controllers: {
+    sessions: 'stations/sessions'
+  }
+  
   resources :reviews
 
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
+  
   resources :featured_artists
 
   resources :stations

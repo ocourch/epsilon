@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'last_fm_search/display'
     post 'last_fm_search/display'
 
+  resources :station_albums
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   devise_for :stations, controllers: {
@@ -33,7 +35,7 @@ Rails.application.routes.draw do
 
   resources :songs
 
-  root 'stations#index', as: 'sta'
+  root 'stations#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Station Albums</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Station</th>
+      <th>Album</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @station_albums.each do |station_album| %>
+      <tr>
+        <td><%= station_album.station_id %></td>
+        <td><%= station_album.album_id %></td>
+        <td><%= link_to 'Show', station_album %></td>
+        <td><%= link_to 'Edit', edit_station_album_path(station_album) %></td>
+        <td><%= link_to 'Destroy', station_album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Station album', new_station_album_path %>

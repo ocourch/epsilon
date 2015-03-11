@@ -19,8 +19,6 @@ class LastFmSearchController < ApplicationController
 
   	first_album = @albums[0]
 
-  	#Album.create
+  	Album.create(name: first_album["name"])
   end
-
-
 end

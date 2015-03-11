@@ -1,0 +1,16 @@
+<table border = "1">
+<tr>
+<td>Name</td>
+<td>Artist</td>
+<td>Art</td>
+</tr>
+
+<% @albums.each do |album| %>
+<tr>
+<td><%= album["name"] %></td>
+<td><%= album["artist"] %></td>
+<td><img src="<%= album["image"][0]["#text"] %>"></td>
+</tr>
+<% end %>
+
+</table>

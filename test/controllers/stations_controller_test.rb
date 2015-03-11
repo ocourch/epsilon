@@ -46,4 +46,24 @@ class StationsControllerTest < ActionController::TestCase
 
     assert_redirected_to stations_path
   end
+
+  test "should show bio" do
+    get :bio, id: @station
+    assert_response :success
+  end
+
+  test "should show current" do
+    get :current, id: @station
+    assert_response :success
+  end
+
+  test "should show library" do
+    get :library, id: @station
+    assert_response :success
+  end
+
+  test "should show hot tracks" do
+    get :hot, id: @station
+    assert_response :success
+  end
 end

@@ -8,17 +8,19 @@ class LastFmSearchController < ApplicationController
   end
 
   def display
-	$apiURI = "http://ws.audioscrobbler.com/2.0/?method=album.search&album=" + params[:query] + "&api_key=949a97d4b7ab1cf6227269acd34f39ce&format=json"
+   $apiURI = "http://ws.audioscrobbler.com/2.0/?method=album.search&album=" + params[:query] + "&api_key=949a97d4b7ab1cf6227269acd34f39ce&format=json"
 
-  	response = Net::HTTP.get_response(URI.parse($apiURI))
-  	data = response.body
+   response = Net::HTTP.get_response(URI.parse($apiURI))
+   data = response.body
 
-  	parsed_json = JSON.parse(data)
+   parsed_json = JSON.parse(data)
 
-  	@albums = parsed_json["results"]["albummatches"]["album"]
+   @albums = parsed_json["results"]["albummatches"]["album"]
 
-  	first_album = @albums[0]
+   if @albums
+     first_album = @albums[0]
 
-  	Album.create(name: first_album["name"])
-  end
+     Album.create(name: first_album["name"])
+   end
+ end
 end

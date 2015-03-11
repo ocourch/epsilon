@@ -5,12 +5,14 @@
 <td>Art</td>
 </tr>
 
-<% @albums.each do |album| %>
-<tr>
-<td><%= album["name"] %></td>
-<td><%= album["artist"] %></td>
-<td><img src="<%= album["image"][0]["#text"] %>"></td>
-</tr>
+<% if @albums 
+	@albums.each do |album|%>
+		<tr>
+		<td><%= album["name"] %></td>
+		<td><%= album["artist"] %></td>
+		<td><img src="<%= album["image"][0]["#text"] %>"></td>
+		</tr>
+	<% end %>
 <% end %>
 
 </table>

@@ -14,9 +14,9 @@ tf = [true, false]
   artist_name = Faker::Name.name
   Artist.create(name: artist_name, genre: genres.sample, id: index, bio: Faker::Lorem.paragraph)
   
-  Album.create(artist_id: index, name: Faker::Commerce.product_name, released: Faker::Date.between(10.years.ago, Time.now), in_lib:tf.sample, id: index)
+  Album.create(artist_id: index, name: Faker::Commerce.product_name, released: Faker::Date.between(10.years.ago, Time.now), in_lib?:tf.sample, id: index)
   
-  Song.create(name: Faker::Name.title, album_id: index, artist_id: index)
+  Song.create(title: Faker::Name.title, album_id: index, artist_id: index)
 end
   
   

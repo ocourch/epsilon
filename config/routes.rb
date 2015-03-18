@@ -8,10 +8,7 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
-  devise_for :stations, controllers: {
-    sessions: 'stations/sessions'
-  }
-
+  resources :stations
   
   resources :reviews
 

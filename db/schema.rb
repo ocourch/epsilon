@@ -11,25 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150304210901) do
+ActiveRecord::Schema.define(version: 20150304191038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "albums", force: :cascade do |t|
-    t.string   "artist_id"
+    t.integer  "artist_id"
     t.date     "released"
     t.string   "record_label"
     t.string   "genre"
+    t.string   "location"
+    t.boolean  "in_lib?"
+    t.string   "name"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.string   "location"
-    t.boolean  "in_lib"
-    t.string   "name"
   end
 
   create_table "artists", force: :cascade do |t|
-    t.string   "artist_id"
+    t.string   "name"
     t.string   "genre"
     t.text     "bio"
     t.datetime "created_at", null: false
@@ -44,17 +44,17 @@ ActiveRecord::Schema.define(version: 20150304210901) do
   end
 
   create_table "playlist_songs", force: :cascade do |t|
-    t.string   "song_id"
-    t.string   "playlist_id"
+    t.integer  "song_id"
+    t.integer  "playlist_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   create_table "playlists", force: :cascade do |t|
-    t.string   "u_id"
-    t.string   "playlist_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -66,28 +66,25 @@ ActiveRecord::Schema.define(version: 20150304210901) do
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string   "artist_id"
-    t.string   "song_id"
-    t.string   "artist_name"
+    t.integer  "artist_id"
+    t.integer  "contributing_artists"
+    t.integer  "album_id"
     t.string   "title"
     t.time     "duration"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "album_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "station_albums", force: :cascade do |t|
-    t.string   "station_id"
-    t.string   "album_id"
+    t.integer  "station_id"
+    t.integer  "album_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "location"
   end
 
   create_table "stations", force: :cascade do |t|
     t.string   "call_letters"
     t.string   "location"
-    t.string   "station_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false
@@ -106,12 +103,12 @@ ActiveRecord::Schema.define(version: 20150304210901) do
   add_index "stations", ["reset_password_token"], name: "index_stations_on_reset_password_token", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "u_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "dj_alias"
-    t.string   "station"
-    t.boolean  "admin"
+    t.integer  "station_id"
+    t.boolean  "site_admin"
+    t.boolean  "station_admin"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false
@@ -124,8 +121,6 @@ ActiveRecord::Schema.define(version: 20150304210901) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.boolean  "site_admin"
-    t.boolean  "station_admin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -1,13 +1,13 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
-      t.string :u_id
       t.string :first_name
       t.string :last_name
       t.string :dj_alias
-      t.string :station
-      t.boolean :admin
-
+      t.integer :station_id
+      t.boolean :site_admin
+      t.boolean :station_admin
+      
       t.timestamps null: false
     end
   end

@@ -1,18 +1,60 @@
-<table border = "1">
-<tr>
-<td>Name</td>
-<td>Artist</td>
-<td>Art</td>
-</tr>
+<h2>Search results for "<%= @query %>":</h2>
 
-<% if @albums 
-	@albums.each do |album|%>
-		<tr>
+<% if @albums %>
+<h3>Albums:</h3>
+<table border = "1">
+	<tr>
+		<td>Name</td>
+		<td>Artist</td>
+		<td>Art</td>
+		<td>Add to Library</td>
+	</tr>
+	<% @albums.each do |album|%>
+	<tr>
 		<td><%= album["name"] %></td>
 		<td><%= album["artist"] %></td>
 		<td><img src="<%= album["image"][0]["#text"] %>"></td>
-		</tr>
+		<td>
+			<%= form_tag(:action => "add_track") do %>
+			<%= hidden_field 'album_name', album["name"] %>
+			<%= hidden_field 'album_artist', album["artist"] %>
+			<%= hidden_field 'album_id', album["id"] %>
+			<%= submit_tag("Add") %>
+			<% end %>
+		</td>
+	</tr>
 	<% end %>
+</table>
 <% end %>
 
+<% if @artists %>
+<h3>Artists:</h3>
+<table border = "1">
+	<tr>
+		<td>Name</td>
+		<td>Art</td>
+	</tr>
+	<% @artists.each do |artist| %>
+	<tr>
+		<td><%= artist["name"] %></td>
+		<td><img src="<%= artist["image"][1]["#text"] %>"></td>
+	</tr>
+	<% end %>
 </table>
+<% end %>
+
+<% if @tracks %>
+<h3>Tracks:</h3>
+<table border = "1">
+	<tr>
+		<td>Name</td>
+		<td>Artist</td>
+	</tr>
+	<% @tracks.each do |track|%>
+	<tr>
+		<td><%= track["name"] %></td>
+		<td><%= track["artist"] %></td>
+	</tr>
+	<% end %>
+</table>
+<% end %>

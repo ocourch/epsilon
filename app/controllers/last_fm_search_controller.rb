@@ -8,19 +8,44 @@ class LastFmSearchController < ApplicationController
   end
 
   def display
-   $apiURI = "http://ws.audioscrobbler.com/2.0/?method=album.search&album=" + params[:query] + "&api_key=949a97d4b7ab1cf6227269acd34f39ce&format=json"
+   result_limit = 10
+   limit_snip = "&limit=" + result_limit.to_s
 
-   response = Net::HTTP.get_response(URI.parse($apiURI))
-   data = response.body
+   begin_snip = "http://ws.audioscrobbler.com/2.0/"
 
-   parsed_json = JSON.parse(data)
+   artist_snip = "?method=artist.search&artist="
+   album_snip = "?method=album.search&album="
+   track_snip = "?method=track.search&track="
 
-   @albums = parsed_json["results"]["albummatches"]["album"]
+   end_snip = params[:query] + limit_snip + "&api_key=949a97d4b7ab1cf6227269acd34f39ce&format=json"
 
-   if @albums
-     first_album = @albums[0]
+   artist_search_URI = begin_snip + artist_snip + end_snip
+   album_search_URI = begin_snip + album_snip + end_snip
+   track_search_URI = begin_snip + track_snip + end_snip
 
-     Album.create(name: first_album["name"])
+   artist_response = Net::HTTP.get_response(URI.parse(artist_search_URI))
+   album_response = Net::HTTP.get_response(URI.parse(album_search_URI))
+   track_response = Net::HTTP.get_response(URI.parse(track_search_URI))
+
+   artist_parsed_json = JSON.parse(artist_response.body)
+   album_parsed_json = JSON.parse(album_response.body)
+   track_parsed_json = JSON.parse(track_response.body)
+
+   @artists = artist_parsed_json["results"]["artistmatches"]["artist"]
+   @albums = album_parsed_json["results"]["albummatches"]["album"]
+   @tracks = track_parsed_json["results"]["trackmatches"]["track"]
+
+   @query = params[:query]
+ end
+
+ def add_track
+  #render text: params
+  if params[:album_id]
+     #Album.create(name: first_album["name"])
+     #Artist.create(name: first_album["artist"])
+     #album_create_status = Album.find_or_create_by(lastfm_id: params[:album_id])
+
+     @output = album_create_status
    end
  end
 end

@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 20150325052314) do
     t.string   "lastfm_id"
   end
 
-  create_table "station_albums", id: false, force: :cascade do |t|
+  create_table "station_albums", force: :cascade do |t|
     t.integer  "station_id"
     t.integer  "album_id"
     t.datetime "created_at", null: false

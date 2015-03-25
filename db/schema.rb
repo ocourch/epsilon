@@ -68,10 +68,10 @@ ActiveRecord::Schema.define(version: 20150325052314) do
     t.string   "user_id"
     t.string   "album_id"
     t.text     "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer  "upvotes"
     t.integer  "downvotes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "songs", force: :cascade do |t|
@@ -85,19 +85,12 @@ ActiveRecord::Schema.define(version: 20150325052314) do
     t.string   "lastfm_id"
   end
 
-  create_table "station_albums", id: false, force: :cascade do |t|
-    t.integer  "station_id"
-    t.integer  "album_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "stations", force: :cascade do |t|
     t.string   "call_letters"
     t.string   "location"
+    t.string   "bio"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.string   "bio"
   end
 
   create_table "stations_users", force: :cascade do |t|

@@ -25,3 +25,12 @@ Artist.create(name: "Tei Shi", genre: "Indie", bio: "Sexy&Talented")
 
   
   
+  Song.create(title: Faker::Name.title, album_id: index, artist_id: index)
+
+  #StationAlbum.create(album_id: index)
+
+end
+
+
+User.create(first_name: "Ronald", last_name: "McDonald", email: "burgers@me.com")
+>>>>>>> Stashed changes

@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20150325052314) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "location"
-    t.boolean  "in_lib"
+    t.boolean  "in_lib?"
     t.string   "name"
     t.string   "lastfm_id"
   end
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20150325052314) do
   end
 
   create_table "artists", force: :cascade do |t|
+    t.string   "name"
     t.string   "artist_id"
     t.string   "genre"
     t.text     "bio"

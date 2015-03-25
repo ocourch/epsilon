@@ -1,8 +1,8 @@
-<% albs = Station.find(1).albums.find(:all, :order => "id desc", :limit => 3)
-	albs.each do |a| %>
+<% albs = Station.first.albums.where(:all, :order => "id desc", :limit => 20) %>
+	<% albs.each do |a| %>
 	<tbody>
       <tr>
-        <td><% a.genre %></td>
+        <td><%= a.genre %></td>
         <td><%= a.name %></td>
         <td><%= a.lastfm_id %></td>
         <td><%= a.artist_id %></td>

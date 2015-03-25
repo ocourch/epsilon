@@ -1,5 +1,5 @@
-<% albs = Station.first.albums.where(:all, :order => "id desc", :limit => 20) %>
-	<% albs.each do |a| %>
+<% Station.first.albums.where('id < 5').find_each do |a| %>
+
 	<tbody>
       <tr>
         <td><%= a.genre %></td>

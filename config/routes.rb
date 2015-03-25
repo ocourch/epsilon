@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   resources :reviews
 
   devise_for :users, controllers: {
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
   }
   
   resources :featured_artists

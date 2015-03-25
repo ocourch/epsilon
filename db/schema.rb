@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150311175118) do
+ActiveRecord::Schema.define(version: 20150325052314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,12 @@ ActiveRecord::Schema.define(version: 20150311175118) do
     t.string   "location"
     t.boolean  "in_lib"
     t.string   "name"
+    t.string   "lastfm_id"
+  end
+
+  create_table "albums_stations", id: false, force: :cascade do |t|
+    t.integer "album_id"
+    t.integer "station_id"
   end
 
   create_table "artists", force: :cascade do |t|
@@ -34,6 +40,7 @@ ActiveRecord::Schema.define(version: 20150311175118) do
     t.text     "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "lastfm_id"
   end
 
   create_table "featured_artists", force: :cascade do |t|
@@ -63,6 +70,8 @@ ActiveRecord::Schema.define(version: 20150311175118) do
     t.text     "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "upvotes"
+    t.integer  "downvotes"
   end
 
   create_table "songs", force: :cascade do |t|
@@ -79,6 +88,14 @@ ActiveRecord::Schema.define(version: 20150311175118) do
   create_table "station_albums", force: :cascade do |t|
     t.string   "station_id"
     t.string   "album_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "lastfm_id"
+  end
+
+  create_table "station_albums", id: false, force: :cascade do |t|
+    t.integer  "station_id"
+    t.integer  "album_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "location"
@@ -100,10 +117,16 @@ ActiveRecord::Schema.define(version: 20150311175118) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "bio"
   end
 
-  add_index "stations", ["email"], name: "index_stations_on_email", unique: true, using: :btree
-  add_index "stations", ["reset_password_token"], name: "index_stations_on_reset_password_token", unique: true, using: :btree
+  create_table "stations_users", force: :cascade do |t|
+    t.integer "station_id"
+    t.integer "user_id"
+    t.boolean "station_admin"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "u_id"
@@ -111,6 +134,7 @@ ActiveRecord::Schema.define(version: 20150311175118) do
     t.string   "last_name"
     t.string   "dj_alias"
     t.string   "station_id"
+    t.boolean  "site_admin"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false

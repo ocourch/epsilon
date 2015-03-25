@@ -4,9 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.string :dj_alias
-      t.integer :station_id
       t.boolean :site_admin
-      t.boolean :station_admin
       
       t.timestamps null: false
     end

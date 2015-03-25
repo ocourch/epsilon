@@ -1,0 +1,11 @@
+<% songs = Station.station_albums.find(:all, :order => "id desc", :limit => 3)
+	songs.each do |s| %>
+	<tbody>
+      <tr>
+        <td><% s.album.genre %></td>
+        <td><%= s.album.name %></td>
+        <td><%= s.album.lastfm_id %></td>
+        <td><%= s.album.artist_id %></td>
+      </tr>
+    </tbody>
+<% end %>

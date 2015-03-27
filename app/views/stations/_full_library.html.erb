@@ -1,10 +1,9 @@
-<% Station.first.albums.where('id < 5').find_each do |a| %>
-
+<% Station.first.albums.order("name ASC").each do |a| %>
 	<tbody>
-      <tr>
-        <td><%= a.artist_id %></td>
+      <tr>        
         <td><%= a.name %></td>
         <td><%= Artist.find(a.artist_id).name %></td>
+        <td><%= a.location %></td>
         <td><%= a.genre %></td>
         <td><%= a.released %></td>
       </tr>

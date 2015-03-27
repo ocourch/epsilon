@@ -8,6 +8,7 @@
 require 'faker'
 
 genres = ['Blues', 'Folk', 'Rock', 'Pop', 'Metal', 'Electronic', 'Jazz', 'Rap']
+locations = ['Spotify', 'mp3', 'Record: Shelf A', 'Record: Shelf B', 'Record: Shelf C', 'CD: Shelf D', 'CD: Shelf E', 'CD: Shelf F' ]
 tf = [true, false]
 Station.create(call_letters: "WBRS", location: "Waltham, MA", bio: "Test bio")
 
@@ -20,7 +21,7 @@ s = Station.find(1)
   
   #Album.create(artist_id: index, name: Faker::Commerce.product_name, released: Faker::Date.between(10.years.ago, Time.now), in_lib?:tf.sample, id: index)
 
-  s.albums << Album.create(artist_id: index, name: Faker::Commerce.product_name, released: Faker::Date.between(10.years.ago, Time.now), in_lib?:tf.sample, id: index)
+  s.albums << Album.create(genre: genres.sample, location: locations.sample, artist_id: index, name: Faker::Commerce.product_name, released: Faker::Date.between(10.years.ago, Time.now), in_lib?:tf.sample, id: index)
   
   Song.create(title: Faker::Name.title, album_id: index, artist_id: index)
 

@@ -41,7 +41,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="../users">DJs</a></li>
+            <li><a href="../users">DJs</a></li>
             <li><a href="#about">Playlists</a></li>
             </li>
           </ul>
@@ -60,41 +60,10 @@
         <div class="col-sm-4">
           <div class="panel panel-success">
             <div class="panel-heading">
-              <h3 class="panel-title">Station Logs</h3>
+              <h3 class="panel-title"><%= Station.first.call_letters %></h3>
             </div>
             <div class="panel-body" style="min-height: 1000">
-              <div class="col-md-6">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Song Title</th>
-                    <th>Album</th>
-                    <th>Artist</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Gotta Love</td>
-                    <td>Wasteland</td>
-                    <td>Rugged Sons</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Fencing is Great</td>
-                    <td>My College Life</td>
-                    <td>Jess</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>To Mordor!</td>
-                    <td>Still Walking</td>
-                    <td>Dasterdly Hobbits</td>
-                  </tr>
-                </tbody>
-              </table>
-              </div>
+              <%= Station.first.bio %>            
             </div>
           </div>
           <div class="panel panel-success">
@@ -107,39 +76,17 @@
           </div>
           <div class="panel panel-success">
             <div class="panel-heading">
-              <h3 class="panel-title">Hot tracks</h3>
+              <h3 class="panel-title">Our DJs</h3>
             </div>
             <div class="panel-body">
               <div class="col-md-6">
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th>#</th>
-                    <th>Song Title</th>
-                    <th>Album</th>
-                    <th>Artist</th>
+                    <th>DJ Alias</th>                    
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Gotta Love</td>
-                    <td>Wasteland</td>
-                    <td>Rugged Sons</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Fencing is Great</td>
-                    <td>My College Life</td>
-                    <td>Jess</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>To Mordor!</td>
-                    <td>Still Walking</td>
-                    <td>Dasterdly Hobbits</td>
-                  </tr>
-                </tbody>
+                <%= render partial:'dj_list' %>
               </table>
               </div>
             </div>
@@ -148,32 +95,57 @@
         <div class="col-sm-8">
           <div class="panel panel-success">
             <div class="panel-heading">
-              <h3 class="panel-title">Station Bio</h3>
+
+              <h3 class="panel-title">Media</h3>
+
             </div>
             <div class="panel-body">
-              do I show up?
-            </div>
-          </div>
-          <div class="panel panel-success">
-            <div class="panel-heading">
-              <h3 class="panel-title">Recently Added</h3>
-            </div>
-            <div class="panel-body">
-              <div class="col-md-12">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Song Title</th>
-                    <th>Album</th>
-                    <th>Artist</th>
-                  </tr>
-                </thead>
-                <%= render partial:'stationlog' %>
-              </table>
-              </div>
-            </div>
-          </div>
+               <div class="tabs">
+    <ul class="tab-links">
+        <li class="active"><a href="#tab1">Recently Added Albums</a></li>
+        <li><a href="#tab2">Station Library</a></li>
+        <li><a href="#tab3">Hottest Tracks</a></li>
+
+    </ul>
+ 
+    <div class="tab-content">
+        <div id="tab1" class="tab active">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Album</th>
+                <th>Artist</th>
+                <th>Genre</th>
+                <th>Released</th>
+              </tr>
+            </thead>
+            <%= render partial:'recent_albums' %>
+        </table>
+        </div>
+ 
+        <div id="tab2" class="tab">
+         <table class="table table-striped">
+           <thead>
+              <tr>                
+                <th>Album</th>
+                <th>Artist</th>
+                <th>Location</th>
+                <th>Genre</th>
+                <th>Released</th>
+              </tr>
+            </thead>
+            <%= render partial:'full_library' %>
+          </table>
+        </div>
+ 
+        <div id="tab3" class="tab">
+            <%= render partial:'hottest_tracks' %>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>          
       </div>
     </div>
   </body>

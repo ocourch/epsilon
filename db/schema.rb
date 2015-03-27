@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150304210901) do
+ActiveRecord::Schema.define(version: 20150327172532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150304210901) do
     t.string   "location"
     t.boolean  "in_lib"
     t.string   "name"
+    t.string   "image_url"
   end
 
   create_table "artists", force: :cascade do |t|
@@ -34,6 +35,7 @@ ActiveRecord::Schema.define(version: 20150304210901) do
     t.text     "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "image_url"
   end
 
   create_table "featured_artists", force: :cascade do |t|
@@ -110,8 +112,7 @@ ActiveRecord::Schema.define(version: 20150304210901) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "dj_alias"
-    t.string   "station"
-    t.boolean  "admin"
+    t.string   "station_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false

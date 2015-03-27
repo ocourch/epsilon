@@ -8,6 +8,7 @@ class CreateAlbums < ActiveRecord::Migration
       t.string :location
       t.boolean :in_lib?
       t.string :name
+      t.datetime :created_at
 
       t.timestamps null: false
     end

@@ -57,19 +57,13 @@
     <br>
     <br>
 
+
 <body style="text-align:center">
   <%= form_tag(:action => "display") do %>
       <p>Name: <%= text_field_tag("query", "Type Here...") %></p>
 
-<head>
-	<title>Simple Search Form</title>
-</head>
-<body>
-	<%= form_tag(:action => "display") do %>
-	<p>Name: <%= text_field_tag("query", "Web Programmer") %></p>
-
-
 	<%= submit_tag("Search") %>
 
 	<% end %>
+
 </body>

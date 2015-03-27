@@ -1,0 +1,7 @@
+<% Station.first.users.find_each do |d| %>
+	<tbody>
+      <tr>
+        <td><%= d.dj_alias %></td>
+      </tr>
+    </tbody>
+<% end %>

@@ -3,7 +3,7 @@ class CreateStations < ActiveRecord::Migration
     create_table :stations do |t|
       t.string :call_letters
       t.string :location
-      t.string :station_id
+      t.string :bio
 
       t.timestamps null: false
     end

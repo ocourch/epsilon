@@ -2,21 +2,22 @@ Rails.application.routes.draw do
   get 'last_fm_search/search'
 
   get 'last_fm_search/display'
-    post 'last_fm_search/display'
+  post 'last_fm_search/display'
 
+  get 'last_fm_search/add_track'
+  post 'last_fm_search/add_track'
+  
   resources :station_albums
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
-  devise_for :stations, controllers: {
-    sessions: 'stations/sessions'
-  }
-
+  resources :stations
   
   resources :reviews
 
   devise_for :users, controllers: {
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
   }
   
   resources :featured_artists

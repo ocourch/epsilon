@@ -57,6 +57,7 @@
     <br>
 
 <body style="text-align:center">
+
 <h2>Search results for "<%= @query %>":</h2>
 
 <% if @albums %>
@@ -74,6 +75,15 @@
 		<td><%= album["artist"] %></td>
 		<td><img src="<%= album["image"][0]["#text"] %>"></td>
 		<td>
+
+
+
+			<%= form_tag(:action => "add_track") do %>
+			<%= hidden_field 'album_name', album["name"] %>
+			<%= hidden_field 'album_artist', album["artist"] %>
+			<%= hidden_field 'album_id', album["id"] %>
+			<%= submit_tag("Add") %>
+			<% end %>
 
 		</td>
 	</tr>
@@ -111,5 +121,9 @@
 	</tr>
 	<% end %>
 </table>
+
 <% end %>
 </body>
+
+<% end %>
+

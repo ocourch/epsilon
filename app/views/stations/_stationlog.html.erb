@@ -2,10 +2,11 @@
 
 	<tbody>
       <tr>
-        <td><%= a.genre %></td>
-        <td><%= a.name %></td>
-        <td><%= a.lastfm_id %></td>
         <td><%= a.artist_id %></td>
+        <td><%= a.name %></td>
+        <td><%= Artist.find(a.artist_id).name %></td>
+        <td><%= a.genre %></td>
+        <td><%= a.released %></td>
       </tr>
     </tbody>
 <% end %>

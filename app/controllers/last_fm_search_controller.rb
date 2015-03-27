@@ -8,31 +8,44 @@ class LastFmSearchController < ApplicationController
   end
 
   def display
-   $albumSearchURI = "http://ws.audioscrobbler.com/2.0/?method=album.search&album=" + params[:query] + "&api_key=949a97d4b7ab1cf6227269acd34f39ce&format=json"
-   $artistSearchURI = "http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=" + params[:query] + "&api_key=949a97d4b7ab1cf6227269acd34f39ce&format=json"
-   $trackSearchURI = "http://ws.audioscrobbler.com/2.0/?method=track.search&track=" + params[:query] + "&api_key=949a97d4b7ab1cf6227269acd34f39ce&format=json"
+   result_limit = 10
+   limit_snip = "&limit=" + result_limit.to_s
 
-   album_response = Net::HTTP.get_response(URI.parse($albumSearchURI))
-   #artist_response = Net::HTPP.get_response(URI.parse($artistSearchURI))
-   #track_response = Net::HTPP.get_response(URI.parse($trackSearchURI))
+   begin_snip = "http://ws.audioscrobbler.com/2.0/"
 
-   album_data = album_response.body
-   #artist_data = artist_response.body
-   #track_data = track_response.body
+   artist_snip = "?method=artist.search&artist="
+   album_snip = "?method=album.search&album="
+   track_snip = "?method=track.search&track="
 
-   album_parsed_json = JSON.parse(album_data)
-   #artist_parsed_json = JSON.parse(artist_data)
-   #track_parsed_json = JSON.parse(track_data)
+   end_snip = params[:query] + limit_snip + "&api_key=949a97d4b7ab1cf6227269acd34f39ce&format=json"
 
+   artist_search_URI = begin_snip + artist_snip + end_snip
+   album_search_URI = begin_snip + album_snip + end_snip
+   track_search_URI = begin_snip + track_snip + end_snip
+
+   artist_response = Net::HTTP.get_response(URI.parse(artist_search_URI))
+   album_response = Net::HTTP.get_response(URI.parse(album_search_URI))
+   track_response = Net::HTTP.get_response(URI.parse(track_search_URI))
+
+   artist_parsed_json = JSON.parse(artist_response.body)
+   album_parsed_json = JSON.parse(album_response.body)
+   track_parsed_json = JSON.parse(track_response.body)
+
+   @artists = artist_parsed_json["results"]["artistmatches"]["artist"]
    @albums = album_parsed_json["results"]["albummatches"]["album"]
+   @tracks = track_parsed_json["results"]["trackmatches"]["track"]
 
-   if @albums
-     first_album = @albums[0]
+   @query = params[:query]
+ end
 
-     #render text: first_album
+ def add_track
+  #render text: params
+  if params[:album_id]
+     #Album.create(name: first_album["name"])
+     #Artist.create(name: first_album["artist"])
+     #album_create_status = Album.find_or_create_by(lastfm_id: params[:album_id])
 
-     Album.create(name: first_album["name"])
-     Artist.create(artist: first_album["artist"])
+     @output = album_create_status
    end
  end
 end

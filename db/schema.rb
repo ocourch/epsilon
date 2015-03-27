@@ -86,14 +86,6 @@ ActiveRecord::Schema.define(version: 20150325052314) do
     t.integer  "album_id"
   end
 
-  create_table "station_albums", force: :cascade do |t|
-    t.string   "station_id"
-    t.string   "album_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.string   "lastfm_id"
-  end
-
   create_table "station_albums", id: false, force: :cascade do |t|
     t.integer  "station_id"
     t.integer  "album_id"
@@ -118,8 +110,6 @@ ActiveRecord::Schema.define(version: 20150325052314) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
     t.string   "bio"
   end
 
@@ -148,7 +138,6 @@ ActiveRecord::Schema.define(version: 20150325052314) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.boolean  "site_admin"
     t.boolean  "station_admin"
   end
 

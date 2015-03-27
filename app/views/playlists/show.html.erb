@@ -2,12 +2,14 @@
 
 <p>
   <strong>U:</strong>
-  <%= @playlist.u_id %>
+  <%= @playlist.user_id %>
 </p>
 
 <p>
-  <strong>Playlist:</strong>
-  <%= @playlist.playlist_id %>
+  <strong>Songs:</strong>
+  <%= @playlist.songs.each do |song|
+    link_to song.name, show_song_path(song)
+  end %>
 </p>
 
 <%= link_to 'Edit', edit_playlist_path(@playlist) %> |

@@ -1,4 +1,18 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  # before_filter :call_letters
+  # def new
+  #   super
+  #
+  #   def call_letters
+  #     if s_id = Station.where(call_letters: sign_up_params[:call_letters])
+  #       sign_up_params.delete(:call_letters)
+  #       sign_up_params.store(:station_id, s_id)
+  #     else
+  #       throw Exception
+  #     end
+  #   end
+  # end
+  
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
 

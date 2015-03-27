@@ -19,13 +19,12 @@ s = Station.find(1)
   Artist.create(name: artist_name, genre: genres.sample, id: index, bio: Faker::Lorem.paragraph)
   
   #Album.create(artist_id: index, name: Faker::Commerce.product_name, released: Faker::Date.between(10.years.ago, Time.now), in_lib?:tf.sample, id: index)
-  
+
   s.albums << Album.create(artist_id: index, name: Faker::Commerce.product_name, released: Faker::Date.between(10.years.ago, Time.now), in_lib?:tf.sample, id: index)
   
   Song.create(title: Faker::Name.title, album_id: index, artist_id: index)
 
   StationAlbum.create(album_id: index)
-
 end
 
 

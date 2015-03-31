@@ -62,34 +62,39 @@
 
 <% if @albums %>
 <h3>Albums:</h3>
-<table border = "1">
-	<tr>
-		<td>Name</td>
-		<td>Artist</td>
-		<td>Art</td>
-		<td>Add to Library</td>
-	</tr>
-	<% @albums.each do |album|%>
-	<tr>
-		<td><%= album["name"] %></td>
-		<td><%= album["artist"] %></td>
-		<td><img src="<%= album["image"][0]["#text"] %>"></td>
-		<td>
 
 
-
-			<%= form_tag(:action => "add_track") do %>
-			<%= hidden_field 'album_name', album["name"] %>
-			<%= hidden_field 'album_artist', album["artist"] %>
-			<%= hidden_field 'album_id', album["id"] %>
-			<%= submit_tag("Add") %>
-			<% end %>
-
-		</td>
-	</tr>
+<div class="col-md-12" id="custom_display">           
+  <table class="table">
+    <thead>
+    	<tr>
+    		<td>Art</td>
+    		<td>Name</td>
+    		<td>Artist</td>
+    		<td>Add to Library</td>
+    	</tr>
+    </thead>
+	 <% @albums.each do |album|%>
+   <tbody>
+  	 <tr>
+  		<td><img src="<%= album["image"][2]["#text"] %>"></td>
+  		<td><%= album["name"] %></td>
+  		<td><%= album["artist"] %></td>
+  		<td>
+  			<%= form_tag(:action => "add_track") do %>
+  			<%= hidden_field 'album_name', album["name"] %>
+  			<%= hidden_field 'album_artist', album["artist"] %>
+  			<%= hidden_field 'album_id', album["id"] %>
+  			<%= submit_tag("Add") %>
+  			<% end %>
+  		</td>
+  	 </tr>
+    </tbody>
 	<% end %>
 </table>
+</div>
 <% end %>
+
 
 <% if @artists %>
 <h3>Artists:</h3>
@@ -106,6 +111,7 @@
 	<% end %>
 </table>
 <% end %>
+
 
 <% if @tracks %>
 <h3>Tracks:</h3>

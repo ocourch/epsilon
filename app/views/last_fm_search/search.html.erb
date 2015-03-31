@@ -56,11 +56,12 @@
     <br>
     <br>
     <br>
+    <br>
 
 
 <body style="text-align:center">
   <%= form_tag(:action => "display") do %>
-      <p>Name: <%= text_field_tag("query", "Type Here...") %></p>
+      <p>Name: <%= text_field_tag("query", nil, placeholder: "Type Here...") %></p>
 
 	<%= submit_tag("Search") %>
 

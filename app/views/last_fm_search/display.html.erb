@@ -68,10 +68,10 @@
   <table class="table">
     <thead>
     	<tr>
-    		<td>Art</td>
-    		<td>Name</td>
-    		<td>Artist</td>
-    		<td>Add to Library</td>
+    		<td><h1>Art</h1></td>
+    		<td><h1>Name</h1></td>
+    		<td><h1>Artist</h1></td>
+    		<td><h1>Add to Library</h1></td>
     	</tr>
     </thead>
 	 <% @albums.each do |album|%>
@@ -80,7 +80,7 @@
   		<td><img src="<%= album["image"][2]["#text"] %>"></td>
   		<td><%= album["name"] %></td>
   		<td><%= album["artist"] %></td>
-  		<td>
+  		<td id="mybutton">
   			<%= form_tag(:action => "add_track") do %>
   			<%= hidden_field 'album_name', album["name"] %>
   			<%= hidden_field 'album_artist', album["artist"] %>

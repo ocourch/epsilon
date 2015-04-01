@@ -1,5 +1,16 @@
 <h1>New Playlist</h1>
 
+<input type="text" id="query" name="query" />
+
+<script src="jquery.js"></script>
+<script src="typeahead.js"></script>
+<script>
+  $("#query").typeahead({
+    name: "song",
+    remote: "/songs/autocomplete?query=%QUERY"
+  });
+</script>
+
 <%= render 'form' %>
 
 <%= link_to 'Back', playlists_path %>

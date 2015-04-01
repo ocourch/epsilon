@@ -1,6 +1,7 @@
-<input type="text" id="song" name="song" placeholder="Song Title..."/>
-<input type="text" id="album" name="album" placeholder="Album Name"/>
-<input type="text" id="artist" name="artist" placeholder="Artist Name"/>
+<input class="form-control" type="text" id="song" name="song" placeholder="Song Title..."/>
+<input class="form-control" type="text" id="album" name="album" placeholder="Album Name..."/>
+<input class="form-control" type="text" id="artist" name="artist" placeholder="Artist Name..."/>
+<button class="btn btn-large btn-default" id="addSong">Add Song</button>
 
 <script>
   var song_engine = new Bloodhound({
@@ -47,4 +48,9 @@
     displayKey: 'name',
     source: artist_engine.ttAdapter()
   });
+  
+  $("addSong").click(function(e) {
+    e.preventDefault();
+    
+  })
 </script>

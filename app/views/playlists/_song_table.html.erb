@@ -1,0 +1,8 @@
+<div id="songTable">
+  <% Playlist.playlist_songs.each do |p_song| %>
+    <%= p_song.song.title %>
+    <%= link_to p_song.song.album, album_path(p_song.song.album) %>
+    <%= link_to p_song.song.album.artist, artist_path(p_song.song.album.artist) %>
+    <%= p_song.time_played %>
+  <% end %>
+</div>

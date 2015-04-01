@@ -12,25 +12,21 @@ locations = ['Spotify', 'mp3', 'Record: Shelf A', 'Record: Shelf B', 'Record: Sh
 tf = [true, false]
 Station.create(call_letters: "WBRS", location: "Waltham, MA", bio: "Test bio")
 
-s = Station.find(1)
-
 (1..1000).each do |index|
   artist_name = Faker::Name.name
-
   Artist.create(name: artist_name, genre: genres.sample, id: index, bio: Faker::Lorem.paragraph)
-  
-  #Album.create(artist_id: index, name: Faker::Commerce.product_name, released: Faker::Date.between(10.years.ago, Time.now), in_lib?:tf.sample, id: index)
-  
 
-  s.albums << Album.create(genre: genres.sample, location: locations.sample, artist_id: index, name: Faker::Commerce.product_name, released: Faker::Date.between(10.years.ago, Time.now), in_lib?:tf.sample, id: index)
-  
-  Song.create(title: Faker::Name.title, album_id: index, artist_id: index)
-
-  StationAlbum.create(album_id: index)
+  Album.create(artist_id: index, name: Faker::Commerce.product_name, released: Faker::Date.between(10.years.ago, Time.now), in_lib?:tf.sample, id: index)
 
   Song.create(title: Faker::Name.title, album_id: index, artist_id: index)
-
-  #StationAlbum.create(album_id: index)
-
-
 end
+
+Station.create(call_letters: "WBRS", location: "Waltham, MA", bio: "Test bio")
+
+#Artist.create(name: "Tei Shi", genre: "Indie", bio: "Sexy&Talented")
+
+
+
+
+
+User.create(first_name: "Ronald", last_name: "McDonald", email: "burgers@me.com")

@@ -59,4 +59,5 @@ end
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap' 
   gem 'rails-assets-typeahead.js'
+  gem 'rails-assets-backbone'
 end

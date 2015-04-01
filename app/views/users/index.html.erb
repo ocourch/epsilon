@@ -46,7 +46,7 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="../navbar/">Search</a></li>
+            <li><a href="../last_fm_search/search/">Search</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -57,19 +57,19 @@
     <br>
 
     <div class="container">
-    <button type="button" class="btn btn-success">+ New Song</button>
+    <button type="button" class="btn btn-success">+ New Playlist</button>
     <br>
       <div class="row">
 
         <div class="col-sm-4">
           <div class="panel panel-success">
             <div class="panel-heading">
-              <h3 class="panel-title">Station Logs</h3>
+              <h3 class="panel-title"><%=User.first.dj_alias %></h3>
             </div>
-            <div class="panel-body" style="min-height: 1000">
-
-        
-
+            <div class="panel-body" style="min-height: 1000">        
+            <%=User.first.first_name %>
+            <%=User.first.last_name %>
+            <%=User.first.email %>
             </div>
           </div>
           <div class="panel panel-success">
@@ -86,32 +86,65 @@
             </div>
             <div class="panel-body">
               <ul class="list-group">
-                <li class="list-group-item">Hot Beats</li>
-                <li class="list-group-item">Mad Feats</li>
-                <li class="list-group-item">Smooth Jazz</li>
-                <li class="list-group-item">latest hits</li>
-                <li class="list-group-item">for fun</li>
+                <%= render partial:'playlist_list' %>
               </ul>
             </div>
           </div>
         </div>
-        <div class="col-sm-8">
+         <div class="col-sm-8">
           <div class="panel panel-success">
             <div class="panel-heading">
-              <h3 class="panel-title">My Bio</h3>
+
+              <h3 class="panel-title">Media</h3>
+
             </div>
             <div class="panel-body">
-              Blurb
-            </div>
-          </div>
-          <div class="panel panel-success">
-            <div class="panel-heading">
-              <h3 class="panel-title">Station Library</h3>
-            </div>
-            <div class="panel-body">
-              Songs recently added to the library
-            </div>
-          </div>
+               <div class="tabs">
+    <ul class="tab-links">
+        <li class="active"><a href="#tab1">Reviews</a></li>
+        <li><a href="#tab2">Station Library</a></li>
+        <li><a href="#tab3">Hottest Tracks</a></li>
+
+    </ul>
+ 
+    <div class="tab-content">
+        <div id="tab1" class="tab active">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Playlist</th>
+                <th>Review</th>
+                <th>Rating</th>
+                
+              </tr>
+            </thead>
+            <%# render partial:'recent_albums' %>
+        </table>
+        </div>
+ 
+        <div id="tab2" class="tab">
+         <table class="table table-striped">
+           <thead>
+              <tr>                
+                <th>Album</th>
+                <th>Artist</th>
+                <th>Location</th>
+                <th>Genre</th>
+                <th>Released</th>
+              </tr>
+            </thead>
+            <%# render partial:'full_library' %>
+          </table>
+        </div>
+ 
+        <div id="tab3" class="tab">
+            <%# render partial:'hottest_tracks' %>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
       </div>
     </div>
   </body>

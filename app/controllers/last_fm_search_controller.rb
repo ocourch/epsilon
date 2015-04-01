@@ -1,5 +1,5 @@
 require "./app/models/album"
-require "./lib/music_info"
+#require "./lib/music_info"
 
 class LastFmSearchController < ApplicationController
 
@@ -46,7 +46,12 @@ class LastFmSearchController < ApplicationController
      #Artist.create(name: first_album["artist"])
      #album_create_status = Album.find_or_create_by(lastfm_id: params[:album_id])
 
-     @output = album_create_status
+     temp_album = Album.new
+
+     temp_album.lastfm_id = params[:album_id][0]
+     temp_album.name = params[:album_name][0]
+
+     temp_album.save
    end
  end
 

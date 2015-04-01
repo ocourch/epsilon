@@ -1,3 +1,42 @@
 // Place all the styles related to the LastFMSearch controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#custom_display{
+	table{
+
+		thead{
+			tr{
+				border: 20px solid white;
+				background-color: #3c763d;
+				color: #eee;
+				
+				td{
+					font-weight: bold;
+				}			
+			}
+		}
+
+		tbody{
+			
+			tr{
+				border: 15px solid white;
+				
+				background-color: #d0e9c6;
+				color: #00190C;
+
+				td{
+					vertical-align: middle;
+					font-size: 1.5em;
+				}
+			}
+		}
+	}
+	
+}
+
+
+
+#mybutton{
+	color: #005229;
+}

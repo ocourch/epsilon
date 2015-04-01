@@ -1,0 +1,56 @@
+<input class="form-control" type="text" id="song" name="song" placeholder="Song Title..."/>
+<input class="form-control" type="text" id="album" name="album" placeholder="Album Name..."/>
+<input class="form-control" type="text" id="artist" name="artist" placeholder="Artist Name..."/>
+<button class="btn btn-large btn-default" id="addSong">Add Song</button>
+
+<script>
+  var song_engine = new Bloodhound({
+    datumTokenizer: function(d) { return d.title; },
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    remote: {
+      url: '/songs/autocomplete?query=%QUERY'
+    }
+  });
+  song_engine.initialize();
+  $("#song").typeahead(
+    {hint: false},
+  {
+    displayKey: 'title',
+    source: song_engine.ttAdapter()
+  });
+  
+  var album_engine = new Bloodhound({
+    datumTokenizer: function(d) { return d.name; },
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    remote: {
+      url: '/albums/autocomplete?query=%QUERY'
+    }
+  });
+  album_engine.initialize();
+  $("#album").typeahead(
+    {hint: false},
+  {
+    displayKey: 'name',
+    source: album_engine.ttAdapter()
+  });
+  
+  var artist_engine = new Bloodhound({
+    datumTokenizer: function(d) { return d.name; },
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    remote: {
+      url: '/artists/autocomplete?query=%QUERY'
+    }
+  });
+  artist_engine.initialize();
+  $("#artist").typeahead(
+    {hint: false},
+  {
+    displayKey: 'name',
+    source: artist_engine.ttAdapter()
+  });
+  
+  $("addSong").click(function(e) {
+    e.preventDefault();
+    
+  })
+</script>

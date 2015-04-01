@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'last_fm_search/add_track'
   post 'last_fm_search/add_track'
   
+
   resources :station_albums
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -33,11 +34,23 @@ Rails.application.routes.draw do
 
   resources :playlists
 
-  resources :artists
+  resources :artists do
+    collection do
+      get :autocomplete
+    end
+  end
 
-  resources :albums
+  resources :albums do
+    collection do
+      get :autocomplete
+    end
+  end
 
-  resources :songs
+  resources :songs do
+    collection do
+      get :autocomplete
+    end
+  end
 
   root 'stations#index'
   # The priority is based upon order of creation: first created -> highest priority.

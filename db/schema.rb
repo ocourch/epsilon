@@ -51,23 +51,16 @@ ActiveRecord::Schema.define(version: 20150325061241) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "playlist_songs", force: :cascade do |t|
-    t.string   "song_id"
-    t.string   "playlist_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+  create_table "playlist_songs", id: false, force: :cascade do |t|
+    t.integer  "playlist_id"
+    t.integer  "song_id"
+    t.datetime "time_played"
   end
 
   create_table "playlists", force: :cascade do |t|
-    t.string   "u_id"
-    t.string   "playlist_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "playlists_songs", id: false, force: :cascade do |t|
-    t.integer "playlist_id"
-    t.integer "song_id"
+    t.integer "user_id"
+    t.string  "title"
+    t.string  "show_name"
   end
 
   create_table "reviews", force: :cascade do |t|

@@ -2,10 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.log-in{
+  width: 700px;
+  margin:auto;
+  text-align:center;
+  padding-top:10%;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+ 
+.panel-heading{
+  background-color:#C8C8C8;
+}
+ 
+.form-control{
+  width: 500px;
+  text-align: center;
+  margin:auto;
+}
+ 
+.panel-body p{
+  color:#555;
+}
 
-/** In users.scss
- *
-
- *= require devise_bootstrap_views
- */
+#my-head{
+	background-color:#C8C8C8;
+}
 

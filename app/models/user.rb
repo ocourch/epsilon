@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :reviews
   has_and_belongs_to_many :stations
+  has_many :playlists
 end

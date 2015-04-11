@@ -5,6 +5,25 @@ class StationsController < ApplicationController
   # GET /stations.json
   def index
     @stations = Station.all
+
+    @played = []
+    Station.first.users.each do |u|
+      u.playlists.each do |p|
+        if p.created_at.to_s == Date.today.to_s
+          @played << p
+        end
+      end
+    end
+
+    @songs = []
+    @played.songs.each do |s|
+      @songs << s
+    end
+    respond_to do |format|
+      format.html
+      format.csv { send_data @songs.to_csv(@songs) }
+    end
+  
   end
 
   # GET /stations/1

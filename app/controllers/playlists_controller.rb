@@ -1,15 +1,17 @@
 class PlaylistsController < ApplicationController
   before_action :set_playlist, only: [:show, :edit, :update, :destroy]
+  respond_to :json, :html
 
   # GET /playlists
   # GET /playlists.json
   def index
-    @playlists = Playlist.all
+    respond_with(@playlists = Playlist.all)
   end
 
   # GET /playlists/1
   # GET /playlists/1.json
   def show
+    respond_with(@playlist = Playlist.find(:id).songs)
   end
 
   # GET /playlists/new

@@ -14,6 +14,7 @@ Station.create(call_letters: "WBRS", location: "Waltham, MA", bio: "Test bio")
 
 s = Station.find(1)
 
+
 (1..6).each do |index|
 	f_name = Faker::Name.first_name
 	d_name = Faker::Name.title

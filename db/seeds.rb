@@ -13,7 +13,7 @@ tf = [true, false]
 Station.create(call_letters: "WBRS", location: "Waltham, MA", bio: "Test bio")
 
 s = Station.find(1)
-
+#adds users to a station
 (1..6).each do |index|
 	f_name = Faker::Name.first_name
 	d_name = Faker::Name.title
@@ -24,10 +24,9 @@ s = Station.find(1)
 end
 
 
-user1 = User.create! :email => 'oscar.courchaine@gmail.com', :password => '12345678', :password_confirmation => '12345678', first_name: 'Oscar', last_name: 'Courchaine' ,dj_alias: 'DJ Pamela', u_id: 100
-s.users << user1
 
 
+#makes music and adds to station
 (1..1000).each do |index|
   artist_name = Faker::Name.name
 
@@ -45,9 +44,19 @@ s.users << user1
 
   Song.create(title: Faker::Name.title, album_id: index, artist_id: index)
 
-
-
-
 end
+
+#adds Oscar as a user
+user1 = User.create! :email => 'oscar.courchaine@gmail.com', :password => '12345678', :password_confirmation => '12345678', first_name: 'Oscar', last_name: 'Courchaine' ,dj_alias: 'DJ Pamela', u_id: 100
+#gives oscar playlists
+(1..6).each do |index|
+	p = Playlist.create(title: Faker::Commerce.product_name, u_id: 100, playlist_id: (index+2000))
+	(1..6).each do |index|
+		p.songs << Song.create(title: Faker::Name.title, album_id: index, artist_id: index)
+	end
+	user1.playlists << p
+end
+
+s.users << user1
 
 

@@ -1,7 +1,0 @@
-Jess Ochs-Willard
-<<<<<<< HEAD
-Oscar Courchaine
-=======
-Ethan Roseman
->>>>>>> 8412d07a96e74f9d8b39222167fe834e91bfd65f
-Test with SSH KEY - ER

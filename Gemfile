@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
-
+#Add bower support
+gem 'bower-rails'
+#Add hooks for elasticsearch
+gem 'searchkick'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use SCSS for stylesheets
@@ -49,12 +52,14 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring', '~> 1.3.3'
+  gem 'spring', '~> 1.3.4'
 
   # Generate mocked data
   gem 'faker'
 end
 
-
-
-
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap' 
+  gem 'rails-assets-typeahead.js'
+  gem 'rails-assets-backbone'
+end

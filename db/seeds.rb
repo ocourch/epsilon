@@ -25,7 +25,6 @@ end
 
 
 
-
 #makes music and adds to station
 (1..1000).each do |index|
   artist_name = Faker::Name.name
@@ -33,6 +32,7 @@ end
   Artist.create(name: artist_name, genre: genres.sample, id: index, bio: Faker::Lorem.paragraph)
   
   
+
 
   s.albums << Album.create(genre: genres.sample, location: locations.sample, artist_id: index, name: Faker::Commerce.product_name, released: Faker::Date.between(10.years.ago, Time.now), in_lib?:tf.sample, id: index)
   
@@ -44,7 +44,11 @@ end
 
   Song.create(title: Faker::Name.title, album_id: index, artist_id: index)
 
-end
+#Song.create(title: Faker::Name.title, album_id: index, artist_id: index)
+
+#StationAlbum.create(album_id: index)
+
+
 
 #adds Oscar as a user
 user1 = User.create! :email => 'oscar.courchaine@gmail.com', :password => '12345678', :password_confirmation => '12345678', first_name: 'Oscar', last_name: 'Courchaine' ,dj_alias: 'DJ Pamela', u_id: 100
@@ -58,5 +62,3 @@ user1 = User.create! :email => 'oscar.courchaine@gmail.com', :password => '12345
 end
 
 s.users << user1
-
-

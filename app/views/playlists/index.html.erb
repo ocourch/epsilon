@@ -5,20 +5,19 @@
 <table>
   <thead>
     <tr>
-      <th>U</th>
-      <th>Playlist</th>
-      <th colspan="3"></th>
+      <th>Title</th>
+      <th>Show Name</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @playlists.each do |playlist| %>
+    <% current_user.playlists.each do |playlist| %>
       <tr>
-        <td><%= playlist.u_id %></td>
-        <td><%= playlist.playlist_id %></td>
-        <td><%= link_to 'Show', playlist %></td>
-        <td><%= link_to 'Edit', edit_playlist_path(playlist) %></td>
-        <td><%= link_to 'Destroy', playlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= playlist.title %></td>
+        <td><%= playlist.show_name %></td>
+        <td><%= link_to 'View', playlist %></td>
+        <td><%= link_to 'Delete', playlist, method: :delete, data: { confirm: 'Are you sure you want to delete this playlist?' } %></td>
       </tr>
     <% end %>
   </tbody>

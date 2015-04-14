@@ -1,6 +1,9 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: [:show, :edit, :update, :destroy]
 
+  def autocomplete
+    render json: Album.search(params[:query], fields: [{name: :word_start}])
+  end
   # GET /albums
   # GET /albums.json
   def index

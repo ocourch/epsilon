@@ -1,6 +1,10 @@
 class SongsController < ApplicationController
   before_action :set_song, only: [:show, :edit, :update, :destroy]
-
+  
+  def autocomplete
+    render json: Song.search(params[:query], fields: [{title: :word_start}])
+  end
+  
   # GET /songs
   # GET /songs.json
   def index

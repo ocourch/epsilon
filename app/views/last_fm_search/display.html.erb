@@ -81,10 +81,10 @@
       <td><%= album["name"] %></td>
       <td><%= album["artist"] %></td>
       <td id="mybutton">
-        <%= form_tag(:action => "add_track") do %>
+        <%= form_tag(:action => "add_album") do %>
         <%= hidden_field 'album_name', album["name"] %>
         <%= hidden_field 'album_artist', album["artist"] %>
-        <%= hidden_field 'album_id', album["id"] %>
+        <%= hidden_field 'lastfm_id', album["id"] %>
         <%= submit_tag("Add") %>
         <% end %>
       </td>

@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   get 'last_fm_search/add_track'
   post 'last_fm_search/add_track'
+
+  get 'last_fm_search/add_album'
+  post 'last_fm_search/add_album'
   
 
   resources :station_albums

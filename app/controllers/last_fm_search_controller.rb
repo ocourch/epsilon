@@ -1,5 +1,6 @@
 require "./app/models/album"
 #require "./lib/music_info"
+require 'pry'
 
 class LastFmSearchController < ApplicationController
 
@@ -39,20 +40,23 @@ class LastFmSearchController < ApplicationController
    @query = params[:query]
  end
 
- def add_track
+ def add_album
   #render text: params
-  if params[:album_id]
      #Album.create(name: first_album["name"])
      #Artist.create(name: first_album["artist"])
      #album_create_status = Album.find_or_create_by(lastfm_id: params[:album_id])
 
      temp_album = Album.new
 
-     temp_album.lastfm_id = params[:album_id][0]
+     binding.pry
+
+     temp_album.lastfm_id = params[:lastfm_id][0]
      temp_album.name = params[:album_name][0]
 
      temp_album.save
-   end
+
+
+     #Album.find_or_create_by(lastfm_id: params[:lastfm_id][0])
  end
 
  def run_tests

@@ -56,6 +56,21 @@ class LastFmSearchController < ApplicationController
 
      this_album = Album.find_or_create_by(artist_id: this_artist.id, name: album_name)
 
+
+    tracks_URI =  "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=949a97d4b7ab1cf6227269acd34f39ce&artist=" + artist_name + "&album=" + album_name + "&format=json"
+    tracks_response = Net::HTTP.get_response(URI.parse(tracks_URI))
+    tracks_json = JSON.parse(tracks_response.body)
+
+    tracks = tracks_json["album"]["tracks"]["track"]
+
+    tracks.each do |track|
+      name = track["name"]
+      duration = track["duration"]
+      this_track = Song.find_or_create_by(title: name, duration: duration, artist_id: this_artist.id, artist_name: artist_name ,album_id: this_album.id)
+
+    end
+
+
      #temp_album.lastfm_id = params[:lastfm_id][0]
      #temp_album.name = params[:album_name][0]
 

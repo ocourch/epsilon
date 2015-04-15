@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
   has_many :reviews
   has_many :playlists
   has_and_belongs_to_many :stations
+  has_many :playlists
 end

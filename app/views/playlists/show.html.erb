@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>U:</strong>
-  <%= @playlist.user_id %>
+  <strong>Playlist:</strong>
+  <%= @playlist.title %>
 </p>
 
 <p>
   <strong>Songs:</strong>
   <%= @playlist.songs.each do |song|
-    link_to song.name, show_song_path(song)
+    link_to song.title, song_path(song)
   end %>
 </p>
 

@@ -1,15 +1,17 @@
 class PlaylistsController < ApplicationController
   before_action :set_playlist, only: [:show, :edit, :update, :destroy]
+  respond_to :json, :html
 
   # GET /playlists
   # GET /playlists.json
   def index
-    @playlists = Playlist.all
+    respond_with(@playlists = current_user.playlists)
   end
 
   # GET /playlists/1
   # GET /playlists/1.json
   def show
+    respond_with(@playlist = Playlist.find(params[:id]))
   end
 
   # GET /playlists/new
@@ -19,6 +21,7 @@ class PlaylistsController < ApplicationController
 
   # GET /playlists/1/edit
   def edit
+    # unsure how to implement this
   end
 
   # POST /playlists
@@ -69,6 +72,6 @@ class PlaylistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def playlist_params
-      params.require(:playlist).permit(:u_id, :playlist_id)
+      params.require(:playlist).permit(:u_id, :playlist_id, :id)
     end
 end

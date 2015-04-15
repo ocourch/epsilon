@@ -55,4 +55,8 @@ user1 = User.create! :email => 'oscar.courchaine@gmail.com', :password => '12345
 	user1.playlists << p
 end
 
+<<<<<<< HEAD
 s.users << user1
+=======
+s.users << user1
+>>>>>>> master

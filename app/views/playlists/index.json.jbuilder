@@ -1,4 +1,4 @@
-json.array!(@playlists) do |playlist|
-  json.extract! playlist, :id, :u_id, :playlist_id
+json.array!(current_user.playlists) do |playlist|
+  json.(playlist, :show_name, :title)
   json.url playlist_url(playlist, format: :json)
 end

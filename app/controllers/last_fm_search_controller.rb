@@ -1,4 +1,3 @@
-require "./app/models/album"
 #require "./lib/music_info"
 require 'pry'
 

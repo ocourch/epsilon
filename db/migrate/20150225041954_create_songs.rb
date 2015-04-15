@@ -5,7 +5,7 @@ class CreateSongs < ActiveRecord::Migration
       t.integer :contributing_artists
       t.integer :album_id
       t.string :title
-      t.time :duration
+      t.integer :duration
 
       t.timestamps null: false
     end

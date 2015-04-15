@@ -1,5 +1,3 @@
-require "./app/models/album"
-
 class LastFmSearchController < ApplicationController
 
   respond_to :json
@@ -12,7 +10,6 @@ class LastFmSearchController < ApplicationController
    limit_snip = "&limit=" + result_limit.to_s
 
    begin_snip = "http://ws.audioscrobbler.com/2.0/"
-
    artist_snip = "?method=artist.search&artist="
    album_snip = "?method=album.search&album="
    track_snip = "?method=track.search&track="

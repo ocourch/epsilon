@@ -1,5 +1,3 @@
-require "./app/models/album"
-
 class LastFmSearchController < ApplicationController
 
   respond_to :json

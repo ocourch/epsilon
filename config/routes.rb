@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  get 'tests/tests'
+
   get 'last_fm_search/search'
+  get 'last_fm_search/run_tests'
 
   get 'last_fm_search/display'
   post 'last_fm_search/display'

@@ -45,4 +45,10 @@ class LastFmSearchController < ApplicationController
      @output = album_create_status
    end
  end
+
+ def run_tests
+    mis = MusicInfoService.new
+
+    @output = mis.get_artists("Watsky", 2)
+ end
 end

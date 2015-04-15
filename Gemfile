@@ -56,6 +56,12 @@ group :development, :test do
 
   # Generate mocked data
   gem 'faker'
+
+  # Debugging
+  gem 'pry'
+
+  # Debugging
+  gem 'pry-byebug'
 end
 
 source 'https://rails-assets.org' do

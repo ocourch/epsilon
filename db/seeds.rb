@@ -30,13 +30,13 @@ end
   artist_name = Faker::Name.name
 
   Artist.create(name: artist_name, genre: genres.sample, id: index, bio: Faker::Lorem.paragraph)
-  
-  
+
 
 
   s.albums << Album.create(genre: genres.sample, location: locations.sample, artist_id: index, name: Faker::Commerce.product_name, released: Faker::Date.between(10.years.ago, Time.now), in_lib?:tf.sample, id: index)
   
    
+
 
   Song.create(title: Faker::Name.title, album_id: index, artist_id: index)
 
@@ -56,3 +56,7 @@ user1 = User.create! :email => 'oscar.courchaine@gmail.com', :password => '12345
 end
 
 s.users << user1
+
+
+User.create(first_name: "Ronald", last_name: "McDonald", email: "burgers@me.com")
+

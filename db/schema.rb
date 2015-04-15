@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(version: 20150327172532) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.string   "bio"
+    t.string   "bio" 
   end
 
   create_table "stations_users", force: :cascade do |t|

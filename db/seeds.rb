@@ -10,7 +10,7 @@ require 'faker'
 genres = ['Blues', 'Folk', 'Rock', 'Pop', 'Metal', 'Electronic', 'Jazz', 'Rap']
 locations = ['Spotify', 'mp3', 'Record: Shelf A', 'Record: Shelf B', 'Record: Shelf C', 'CD: Shelf D', 'CD: Shelf E', 'CD: Shelf F' ]
 tf = [true, false]
-Station.create(call_letters: "WBRS", location: "Waltham, MA", bio: "Test bio" station_id: '1')
+Station.create(call_letters: "WBRS", location: "Waltham, MA", bio: "The Station of Brandeis University, committed to providing the best music for our fellow students", station_id: '1')
 
 s = Station.find(1)
 #adds users to a station

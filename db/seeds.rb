@@ -16,7 +16,7 @@ s = Station.find(1)
 #adds users to a station
 (1..6).each do |index|
 	f_name = Faker::Name.first_name
-	d_name = "DJ" + Faker::Name.title
+	d_name = "DJ " + Faker::Name.title
 	l_name = Faker::Name.last_name
 	em = Faker::Internet.email
 	user = User.create! :station_id => '1', :email => em, :password => 'topsecret', :password_confirmation => 'topsecret', first_name: f_name, last_name: l_name,dj_alias: d_name, u_id: index

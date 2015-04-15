@@ -2,18 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-
-#logonandon{
-	margin-left: auto;
-	margin-right: auto;
-	width: 6em;
-	padding-left: -20px;
+.log-in{
+  width: 700px;
+  margin:auto;
+  text-align:center;
+  padding-top:10%;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+ 
+.panel-heading{
+  background-color:#C8C8C8;
+}
+ 
+.form-control{
+  width: 500px;
+  text-align: center;
+  margin:auto;
+}
+ 
+.panel-body p{
+  color:#555;
 }
 
-#logonandon h2{
-	color: #99FF66;
-	margin-left: auto;
-	margin-right: auto;
-	width: 6em;
+#my-head{
+	background-color:#C8C8C8;
 }
+

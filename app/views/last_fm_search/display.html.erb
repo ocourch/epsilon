@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -61,7 +61,7 @@
 <h2>Search results for "<%= @query %>":</h2>
 
 <% if @albums %>
-<h3>Albums:</h3>
+<!--<h3>Albums:</h3>//-->
 
 
 <div class="col-md-12" id="custom_display">           
@@ -82,9 +82,9 @@
       <td><%= album["artist"] %></td>
       <td id="mybutton">
         <%= form_tag(:action => "add_album") do %>
-        <%= hidden_field 'album_name', album["name"] %>
-        <%= hidden_field 'album_artist', album["artist"] %>
-        <%= hidden_field 'lastfm_id', album["id"] %>
+        <%= hidden_field_tag 'album_name', album["name"] %>
+        <%= hidden_field_tag 'album_artist', album["artist"] %>
+        <%= hidden_field_tag 'album_id', album["id"] %>
         <%= submit_tag("Add") %>
         <% end %>
       </td>
@@ -96,7 +96,7 @@
 <% end %>
 
 
-<% if @artists %>
+<!--<% if @artists %>
 <h3>Artists:</h3>
 <table border = "1">
   <tr>
@@ -128,5 +128,6 @@
   <% end %>
 </table>
 
-<% end %>
+<% end %>//-->
 </body>
+</html>

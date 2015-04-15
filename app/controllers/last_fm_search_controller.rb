@@ -46,14 +46,20 @@ class LastFmSearchController < ApplicationController
      #Artist.create(name: first_album["artist"])
      #album_create_status = Album.find_or_create_by(lastfm_id: params[:album_id])
 
-     temp_album = Album.new
+     #temp_album = Album.new
 
-     binding.pry
+     artist_name = params[:album_artist]
+     album_name = params[:album_name]
+     lastfm_id = params[:album_id]
 
-     temp_album.lastfm_id = params[:lastfm_id][0]
-     temp_album.name = params[:album_name][0]
+     this_artist = Artist.find_or_create_by(name: artist_name)
 
-     temp_album.save
+     this_album = Album.find_or_create_by(artist_id: this_artist.id, name: album_name)
+
+     #temp_album.lastfm_id = params[:lastfm_id][0]
+     #temp_album.name = params[:album_name][0]
+
+     #temp_album.save
 
 
      #Album.find_or_create_by(lastfm_id: params[:lastfm_id][0])

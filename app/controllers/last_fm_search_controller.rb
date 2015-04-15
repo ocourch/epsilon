@@ -64,7 +64,7 @@ class LastFmSearchController < ApplicationController
     tracks.each do |track|
       name = track["name"]
       duration = track["duration"]
-      this_track = Song.find_or_create_by(title: name, duration: duration, artist_id: this_artist.id, artist_name: artist_name ,album_id: this_album.id)
+      this_track = Song.find_or_create_by(title: name, duration: duration, artist_id: this_artist.id,album_id: this_album.id)
 
     end
 

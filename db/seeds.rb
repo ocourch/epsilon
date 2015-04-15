@@ -10,16 +10,16 @@ require 'faker'
 genres = ['Blues', 'Folk', 'Rock', 'Pop', 'Metal', 'Electronic', 'Jazz', 'Rap']
 locations = ['Spotify', 'mp3', 'Record: Shelf A', 'Record: Shelf B', 'Record: Shelf C', 'CD: Shelf D', 'CD: Shelf E', 'CD: Shelf F' ]
 tf = [true, false]
-Station.create(call_letters: "WBRS", location: "Waltham, MA", bio: "Test bio")
+Station.create(call_letters: "WBRS", location: "Waltham, MA", bio: "Test bio" station_id: '1')
 
 s = Station.find(1)
 #adds users to a station
 (1..6).each do |index|
 	f_name = Faker::Name.first_name
-	d_name = Faker::Name.title
+	d_name = "DJ" + Faker::Name.title
 	l_name = Faker::Name.last_name
 	em = Faker::Internet.email
-	user = User.create! :email => em, :password => 'topsecret', :password_confirmation => 'topsecret', first_name: f_name, last_name: l_name,dj_alias: d_name, u_id: index
+	user = User.create! :station_id => '1', :email => em, :password => 'topsecret', :password_confirmation => 'topsecret', first_name: f_name, last_name: l_name,dj_alias: d_name, u_id: index
 	s.users << user
 end
 
@@ -40,13 +40,7 @@ end
 
   Song.create(title: Faker::Name.title, album_id: index, artist_id: index)
 
-  StationAlbum.create(album_id: index)
-
-  Song.create(title: Faker::Name.title, album_id: index, artist_id: index)
-
-#Song.create(title: Faker::Name.title, album_id: index, artist_id: index)
-
-#StationAlbum.create(album_id: index)
+end
 
 
 
@@ -54,7 +48,7 @@ end
 user1 = User.create! :email => 'oscar.courchaine@gmail.com', :password => '12345678', :password_confirmation => '12345678', first_name: 'Oscar', last_name: 'Courchaine' ,dj_alias: 'DJ Pamela', u_id: 100
 #gives oscar playlists
 (1..6).each do |index|
-	p = Playlist.create(title: Faker::Commerce.product_name, u_id: 100, playlist_id: (index+2000))
+	p = Playlist.create(title: Faker::Commerce.product_name, user_id: 100)
 	(1..6).each do |index|
 		p.songs << Song.create(title: Faker::Name.title, album_id: index, artist_id: index)
 	end

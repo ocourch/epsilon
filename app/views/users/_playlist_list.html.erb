@@ -1,3 +1,3 @@
-<%# User.first.playlist.find_each do |d| %>
-	<li class="list-group-item"><%#d.name%></li>
-<%# end %>
+<% current_user.playlists.find_each do |d| %>
+	<li class="list-group-item"><%=d.title%></li>
+<% end %>

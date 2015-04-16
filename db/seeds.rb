@@ -10,7 +10,7 @@ require 'faker'
 genres = ['Blues', 'Folk', 'Rock', 'Pop', 'Metal', 'Electronic', 'Jazz', 'Rap']
 locations = ['Spotify', 'mp3', 'Record: Shelf A', 'Record: Shelf B', 'Record: Shelf C', 'CD: Shelf D', 'CD: Shelf E', 'CD: Shelf F' ]
 tf = [true, false]
-Station.create(call_letters: "WBRS", location: "Waltham, MA", bio: "The Station of Brandeis University, committed to providing the best music for our fellow students", station_id: '1')
+Station.create(call_letters: "WBRS", location: "Waltham, MA", bio: "The Station of Brandeis University, committed to providing the best music for our fellow students", id: '1')
 
 s = Station.find(1)
 #adds users to a station
@@ -19,7 +19,8 @@ s = Station.find(1)
 	d_name = "DJ " + Faker::Name.title
 	l_name = Faker::Name.last_name
 	em = Faker::Internet.email
-	user = User.create! :station_id => '1', :email => em, :password => 'topsecret', :password_confirmation => 'topsecret', first_name: f_name, last_name: l_name,dj_alias: d_name, u_id: index
+	user = User.create! :email => em, :password => 'topsecret', :password_confirmation => 'topsecret', first_name: f_name, last_name: l_name,dj_alias: d_name, id: index
+	user.stations << s
 	s.users << user 
 end
 
@@ -45,7 +46,8 @@ end
 
 
 #adds Oscar as a user
-user1 = User.create! :email => 'oscar.courchaine@gmail.com', :password => '12345678', :password_confirmation => '12345678', first_name: 'Oscar', last_name: 'Courchaine' ,dj_alias: 'DJ Pamela', u_id: 100
+user1 = User.create! :email => 'oscar.courchaine@gmail.com', :password => '12345678', :password_confirmation => '12345678', first_name: 'Oscar', last_name: 'Courchaine' ,dj_alias: 'DJ Pamela', id: 100
+user1.stations << s
 #gives oscar playlists
 (1..6).each do |index|
 	p = Playlist.create(title: Faker::Commerce.product_name, user_id: 100)

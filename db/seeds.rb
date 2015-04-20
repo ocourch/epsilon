@@ -48,11 +48,15 @@ end
 #adds Oscar as a user
 user1 = User.create! :email => 'oscar.courchaine@gmail.com', :password => '12345678', :password_confirmation => '12345678', first_name: 'Oscar', last_name: 'Courchaine' ,dj_alias: 'DJ Pamela', id: 100
 user1.stations << s
+
 #gives oscar playlists
 (1..6).each do |index|
 	p = Playlist.create(title: Faker::Commerce.product_name, user_id: 100)
 	(1..6).each do |index|
-		p.songs << Song.create(title: Faker::Name.title, album_id: index, artist_id: index)
+		r = Random.new
+		t = r.rand(2.0..5.0)
+		t.round(2)
+		p.songs << Song.create(title: Faker::Name.title, album_id: index, artist_id: index, duration: t)
 	end
 	user1.playlists << p
 end

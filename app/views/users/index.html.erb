@@ -109,12 +109,21 @@
                 <th>Released</th>
               </tr>
             </thead>
-            <% render partial:'./stations/full_library' %>
+            <% render :partial => 'stations/full_library' %>
           </table>
         </div>
  
         <div id="tab3" class="tab">
-            <%# render partial:'hottest_tracks' %>
+          <table class="table table-striped">
+           <thead>
+              <tr>                
+                <th>Song</th>
+                <th>Album</th>
+                <th>Artist</th>
+              </tr>
+            </thead>
+              <%= render :partial => 'stations/hottest_tracks' %>
+          </table>
         </div>
         </div>
         </div>

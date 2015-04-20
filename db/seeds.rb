@@ -20,8 +20,8 @@ s = Station.find(1)
 	l_name = Faker::Name.last_name
 	em = Faker::Internet.email
 	user = User.create! :email => em, :password => 'topsecret', :password_confirmation => 'topsecret', first_name: f_name, last_name: l_name,dj_alias: d_name, id: index
-	user.stations << s
-	s.users << user 
+	#user.stations << s
+	s.users << user
 end
 
 

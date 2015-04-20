@@ -54,8 +54,7 @@ user1.stations << s
 	p = Playlist.create(title: Faker::Commerce.product_name, user_id: 100)
 	(1..6).each do |index|
 		r = Random.new
-		t = r.rand(2.0..5.0)
-		t.round(2)
+		t = r.rand(150..350)
 		p.songs << Song.create(title: Faker::Name.title, album_id: index, artist_id: index, duration: t)
 	end
 	user1.playlists << p

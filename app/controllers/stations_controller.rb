@@ -13,33 +13,28 @@ class StationsController < ApplicationController
       end
     end
 
-    @songs = []
+    @data = Hash.new
+    counter = 0
     if !@played.empty?
       @played.each do |pl|
+        b1 = pl.updated_at.to_s.split("-")
+        b2 = b1[2].split(" ")
+        b3 = b2[1].split(":")
+        start_time = Time.new(b1[0], b1[1], b2[0], b3[0], b3[1], b3[2], "+00:00")
 
         pl.songs.each do |s|
-          @songs << s
+          s.updated_at = start_time
+          @data[counter] = s
+          counter += 1
+          start_time = start_time + s.duration
         end
       end
-    end
-
-    puts "************************************************************************"
-      puts @songs.size
-      puts "************************************************************************"
-
-    @data = Hash.new
-
-    @songs.each do |so|
-      l = so.title
-      @data[l]= so
-    end
-
-     puts "************************************************************************"
-      puts @data.size
-      puts "************************************************************************"
+    end   
+    
     respond_to do |format|
       format.html
-      format.csv { send_data Song.to_csv(@data), filename:"daily_report.csv" }
+      f = Time.now.to_s.truncate(10, omission: "")
+      format.csv { send_data Song.to_csv(@data), filename:"Station Report #{f}.csv" }
     end
   
   end

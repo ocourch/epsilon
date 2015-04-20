@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 20150327172532) do
     t.integer  "contributing_artists"
     t.integer  "album_id"
     t.string   "title"
-    t.time     "duration"
+    t.integer  "duration"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.string   "lastfm_id"

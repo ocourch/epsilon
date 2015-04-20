@@ -5,13 +5,12 @@ class Song < ActiveRecord::Base
 
   def self.to_csv(options = {})
   	CSV.generate(Hash.new) do |csv|
-  		col_names = ["#", "Title", "Album", "Artist"]
+  		col_names = ["#", "Title", "Album", "Artist", "Timestamp"]
 	    csv << col_names
-	    puts "************************************************************************"
-	    puts options.size
-	    puts "************************************************************************"
-	    options.each_with_index do |(key,value),index|
-	    	d = [index+1, value.title, Album.find(value.album_id).name, Artist.find(value.artist_id).name]
+	    options = options.to_a
+	    options.sort! { |a,b| a[1].updated_at <=> b[1].updated_at}
+	    options.each_with_index do |value, index|
+	    	d = [index+1, value[1].title, Album.find(value[1].album_id).name, Artist.find(value[1].artist_id).name, value[1].updated_at]
        		csv << d
 		end
   	end

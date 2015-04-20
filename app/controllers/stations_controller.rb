@@ -5,7 +5,7 @@ class StationsController < ApplicationController
   # GET /stations.json
   def index
     @stations = Station.all
-    #csv crap
+    #csv 
     @played = []
     Station.first.users.each do |u|
       u.playlists.where("updated_at > ?", Date.today).each do |p|
@@ -16,19 +16,30 @@ class StationsController < ApplicationController
     @songs = []
     if !@played.empty?
       @played.each do |pl|
+
         pl.songs.each do |s|
           @songs << s
         end
       end
     end
 
-    respond_to do |format|
-      puts "******************\n\n\n\n\n\n\n\n"
-      puts @songs.inspect
-        puts "******************\n\n\n\n\n\n\n\n"
+    puts "************************************************************************"
+      puts @songs.size
+      puts "************************************************************************"
 
+    @data = Hash.new
+
+    @songs.each do |so|
+      l = so.title
+      @data[l]= so
+    end
+
+     puts "************************************************************************"
+      puts @data.size
+      puts "************************************************************************"
+    respond_to do |format|
       format.html
-      format.csv { send_data @songs.to_csv() }
+      format.csv { send_data Song.to_csv(@data), filename:"daily_report.csv" }
     end
   
   end

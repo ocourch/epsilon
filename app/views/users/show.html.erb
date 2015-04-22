@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../favicon.ico">
 
-    <title>Main User Page</title>
+    <title>Main User Show Page</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
@@ -84,10 +84,10 @@
         </div>
 
         <div id="tab5" class="tab">
-          Name: <%=User.find(2).first_name %> <%=User.find(2).last_name %>
+          Name: <%=@user.first_name %> <%=@user.last_name %>
            
           <br>
-          Email: <%=User.find(2).email %>>
+          Email: <%=@user.email %>>
 
         </div>
 

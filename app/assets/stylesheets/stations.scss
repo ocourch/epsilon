@@ -2,6 +2,40 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body{
+    
+}
+
+#dj_link{
+
+    
+        text-decoration: none;
+    
+    :hover{
+        text-decoration: none;
+        background:#5899EB;
+    }            
+}
+
+
+#make_small_bio{
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 30px;
+}
+
+#make_small_recent{
+    margin-left: 50px;
+    margin-right: 150px;
+    margin-top: 15px;
+}
+
+
+#please_center_s{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;    
+}
 
 /*----- Tabs -----*/
 .tabs {
@@ -27,28 +61,27 @@
         padding:9px 15px;
         display:inline-block;
         border-radius:3px 3px 0px 0px;
-        background: #d0e9c6; 
+        background: #96BFF2; 
         font-size:16px;
         font-weight:600;
-        color:#3c763d;
+        color: black;
         transition:all linear 0.15s;
     }
 
     .tab-links a:hover {
-        background:#a7cce5;
+        background:#5899EB;
         text-decoration:none;
     }
 
 li.active a, li.active a:hover {
-    background:#fff;
-    color:#4c4c4c;
+    background:#2e7fe6;
+    color: black;
 }
 
 /*----- Content of Tabs -----*/
 .tab-content {
     padding:15px;
-    border-radius:3px;
-    box-shadow:-1px 1px 1px rgba(0,0,0,0.15);
+    
     background:#fff;
 }
 

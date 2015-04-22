@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
+  get 'tests/tests'
+
   get 'last_fm_search/search'
+  get 'last_fm_search/run_tests'
 
   get 'last_fm_search/display'
   post 'last_fm_search/display'
 
   get 'last_fm_search/add_track'
   post 'last_fm_search/add_track'
+
+  get 'last_fm_search/add_album'
+  post 'last_fm_search/add_album'
   
 
   resources :station_albums

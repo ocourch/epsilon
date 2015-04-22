@@ -10,7 +10,9 @@ require 'faker'
 genres = ['Blues', 'Folk', 'Rock', 'Pop', 'Metal', 'Electronic', 'Jazz', 'Rap']
 locations = ['Spotify', 'mp3', 'Record: Shelf A', 'Record: Shelf B', 'Record: Shelf C', 'CD: Shelf D', 'CD: Shelf E', 'CD: Shelf F' ]
 tf = [true, false]
+
 Station.create(call_letters: "WBRS", location: "Waltham, MA", bio: "The Station of Brandeis University, committed to providing the best music for our fellow students", id: '1')
+
 
 s = Station.find(1)
 #adds users to a station
@@ -19,15 +21,17 @@ s = Station.find(1)
 	d_name = "DJ " + Faker::Name.title
 	l_name = Faker::Name.last_name
 	em = Faker::Internet.email
+
 	user = User.create! :email => em, :password => 'topsecret', :password_confirmation => 'topsecret', first_name: f_name, last_name: l_name,dj_alias: d_name, id: index
 	#user.stations << s
 	s.users << user
+
 end
 
 
 
 #makes music and adds to station
-(1..1000).each do |index|
+(1..10).each do |index|
   artist_name = Faker::Name.name
 
   Artist.create(name: artist_name, genre: genres.sample, id: index, bio: Faker::Lorem.paragraph)
@@ -46,8 +50,10 @@ end
 
 
 #adds Oscar as a user
+
 user1 = User.create! :email => 'oscar.courchaine@gmail.com', :password => '12345678', :password_confirmation => '12345678', first_name: 'Oscar', last_name: 'Courchaine' ,dj_alias: 'DJ Pamela', id: 100
 user1.stations << s
+
 
 #gives oscar playlists
 (1..6).each do |index|
@@ -61,3 +67,10 @@ user1.stations << s
 end
 
 s.users << user1
+
+ActiveRecord::Base.connection.tables.each do |table|
+  result = ActiveRecord::Base.connection.execute("SELECT id FROM #{table} ORDER BY id DESC LIMIT 1") rescue ( puts "Warning: not procesing table #{table}. Id is missing?" ; next )
+  ai_val = result.any? ? result.first['id'].to_i + 1 : 1
+  puts "Resetting auto increment ID for #{table} to #{ai_val}"
+  ActiveRecord::Base.connection.execute("ALTER SEQUENCE #{table}_id_seq RESTART WITH #{ai_val}")
+end

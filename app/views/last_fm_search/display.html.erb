@@ -40,30 +40,30 @@
 <div class="col-md-12" id="custom_display">           
   <table class="table">
     <thead>
-    	<tr>
-    		<td><h1>Art</h1></td>
-    		<td><h1>Name</h1></td>
-    		<td><h1>Artist</h1></td>
-    		<td><h1>Add to Library</h1></td>
-    	</tr>
+      <tr>
+        <td><h1>Art</h1></td>
+        <td><h1>Name</h1></td>
+        <td><h1>Artist</h1></td>
+        <td><h1>Add to Library</h1></td>
+      </tr>
     </thead>
-	 <% @albums.each do |album|%>
+   <% @albums.each do |album|%>
    <tbody>
-  	 <tr>
-  		<td><img src="<%= album["image"][2]["#text"] %>"></td>
-  		<td><%= album["name"] %></td>
-  		<td><%= album["artist"] %></td>
-  		<td id="mybutton">
-  			<%= form_tag(:action => "add_track") do %>
-  			<%= hidden_field 'album_name', album["name"] %>
-  			<%= hidden_field 'album_artist', album["artist"] %>
-  			<%= hidden_field 'album_id', album["id"] %>
-  			<%= submit_tag("Add") %>
-  			<% end %>
-  		</td>
-  	 </tr>
+     <tr>
+      <td><img src="<%= album["image"][2]["#text"] %>"></td>
+      <td><%= album["name"] %></td>
+      <td><%= album["artist"] %></td>
+      <td id="mybutton">
+        <%= form_tag(:action => "add_album") do %>
+        <%= hidden_field_tag 'album_name', album["name"] %>
+        <%= hidden_field_tag 'album_artist', album["artist"] %>
+        <%= hidden_field_tag 'album_id', album["id"] %>
+        <%= submit_tag("Add") %>
+        <% end %>
+      </td>
+     </tr>
     </tbody>
-	<% end %>
+  <% end %>
 </table>
 </div>
 <% end %>
@@ -72,16 +72,16 @@
 <!--<% if @artists %>
 <h3>Artists:</h3>
 <table border = "1">
-	<tr>
-		<td>Name</td>
-		<td>Art</td>
-	</tr>
-	<% @artists.each do |artist| %>
-	<tr>
-		<td><%= artist["name"] %></td>
-		<td><img src="<%= artist["image"][1]["#text"] %>"></td>
-	</tr>
-	<% end %>
+  <tr>
+    <td>Name</td>
+    <td>Art</td>
+  </tr>
+  <% @artists.each do |artist| %>
+  <tr>
+    <td><%= artist["name"] %></td>
+    <td><img src="<%= artist["image"][1]["#text"] %>"></td>
+  </tr>
+  <% end %>
 </table>
 <% end %>
 
@@ -89,16 +89,16 @@
 <% if @tracks %>
 <h3>Tracks:</h3>
 <table border = "1">
-	<tr>
-		<td>Name</td>
-		<td>Artist</td>
-	</tr>
-	<% @tracks.each do |track|%>
-	<tr>
-		<td><%= track["name"] %></td>
-		<td><%= track["artist"] %></td>
-	</tr>
-	<% end %>
+  <tr>
+    <td>Name</td>
+    <td>Artist</td>
+  </tr>
+  <% @tracks.each do |track|%>
+  <tr>
+    <td><%= track["name"] %></td>
+    <td><%= track["artist"] %></td>
+  </tr>
+  <% end %>
 </table>
 
 <% end %>//-->
@@ -111,6 +111,4 @@
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></scrip
 
 </body>
-
-
-
+</html>

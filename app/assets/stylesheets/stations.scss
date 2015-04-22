@@ -2,8 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body{
+#album_link{
     
+    div a:link{
+
+    }
+    div a:hover{
+        text-decoration: none;
+        background-color: #FF704D;
+    }
+
+    :visited{
+        text-decoration:none;
+    }
+}
+
+
+
+#a_display{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
 }
 
 #dj_link{

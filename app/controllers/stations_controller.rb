@@ -42,6 +42,7 @@ class StationsController < ApplicationController
   # GET /stations/1
   # GET /stations/1.json
   def show
+     redirect_to "/" 
   end
 
   # GET /stations/new

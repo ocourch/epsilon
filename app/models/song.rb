@@ -13,7 +13,7 @@ class Song < ActiveRecord::Base
 	    options.sort! { |a,b| a[1].updated_at <=> b[1].updated_at}
 	    options.each_with_index do |value, index|
 	    	d = [index+1, value[1].title, Album.find(value[1].album_id).name, Artist.find(value[1].artist_id).name, value[1].updated_at]
-       		csv << d
+       	csv << d
 		  end
   	end
   end

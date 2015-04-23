@@ -1,0 +1,32 @@
+<% h = Hash.new
+	hot = []
+	Station.first.users.find_each do |u| 
+		u.playlists.find_each do |p|
+ 
+			p.songs.each do |s|
+				if h.has_key?(s)
+					t = h[s] + 1
+					h[s] = t
+				else
+					h[s] = 1
+				end
+			end
+
+			h.each do |k,v|
+				if v > 1
+					hot << k
+				end
+			end
+		end
+	end %>
+
+<% hot.first(10).each do |so| %>
+
+	<tbody>
+	  <tr>
+	    <td><%= so.title %></td>
+	    <td><%= Album.find(so.artist_id).name %></td>
+	    <td><%= Artist.find(so.artist_id).name %></td>
+	  </tr>
+	</tbody>
+<% end %>

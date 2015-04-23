@@ -16,3 +16,4 @@
 //= require_tree .
 //= require typeahead.js
 //= require backbone
+//= require bootstrap

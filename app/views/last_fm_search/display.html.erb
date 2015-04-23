@@ -27,34 +27,7 @@
   <body>
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="../stations">Epsilon</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="../users">DJs</a></li>
-            <li><a href="#about">Playlists</a></li>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="../last_fm_search/search/">Search</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <%= render :partial => 'stations/navbar' %>
 
 <body style="text-align:center">
 
@@ -67,12 +40,14 @@
 <div class="col-md-12" id="custom_display">           
   <table class="table">
     <thead>
-      <tr>
-        <td><h1>Art</h1></td>
-        <td><h1>Name</h1></td>
-        <td><h1>Artist</h1></td>
-        <td><h1>Add to Library</h1></td>
-      </tr>
+
+    	<tr>
+    		<td><h1>Cover</h1></td>
+    		<td><h1>Name</h1></td>
+    		<td><h1>Artist</h1></td>
+    		<td><h1>Add to Library</h1></td>
+    	</tr>
+
     </thead>
    <% @albums.each do |album|%>
    <tbody>
@@ -129,5 +104,13 @@
 </table>
 
 <% end %>//-->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
 </body>
 </html>

@@ -59,9 +59,11 @@ ActiveRecord::Schema.define(version: 20150327172532) do
   end
 
   create_table "playlists", force: :cascade do |t|
-    t.integer "user_id"
-    t.string  "title"
-    t.string  "show_name"
+    t.string   "user_id"
+    t.string   "title"
+    t.string   "show_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reviews", force: :cascade do |t|

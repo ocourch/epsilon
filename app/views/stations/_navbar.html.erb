@@ -1,0 +1,46 @@
+<script type="text/javascript" src="js/jquery-1.8.0.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><%= Station.first.call_letters%></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="../playlists">Playlists</a></li>  
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.first_name %> <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="../users">My Profile</a></li>           
+            <li class="divider"></li>
+            <li><a href="../users/<%=current_user.id%>/edit">Edit my Profile</a></li>
+            <li class="divider"></li>
+            <li><%= link_to "Log out", destroy_user_session_path, :method => :delete%></li>
+          </ul>
+        </li>      
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= form_tag(:action => "display", :controller => "last_fm_search") do %>
+            <%= text_field_tag("query", nil, placeholder: "Add Album to Library...") %>
+          
+            <button type="submit" class="btn btn-link navbar-btn"><%= submit_tag("Search") %></button>
+          <% end %>
+            
+        </li>
+
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+<br>
+<br>
+<br>
+<br>

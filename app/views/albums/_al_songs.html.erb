@@ -1,0 +1,10 @@
+
+<% @album.songs.each_with_index do |s, i| %>
+	<tbody>
+      <tr>
+        <td><%= i+1 %></td>
+        <td><%= s.title %></td>
+        <td><%= s.duration %></td>
+      </tr>
+    </tbody>
+<% end %>

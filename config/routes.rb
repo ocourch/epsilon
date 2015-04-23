@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   get 'last_fm_search/add_track'
   post 'last_fm_search/add_track'
+
+  get 'last_fm_search/add_album'
+  post 'last_fm_search/add_album'
   
 
   resources :station_albums
@@ -51,6 +54,9 @@ Rails.application.routes.draw do
       get :autocomplete
     end
   end
+
+
+  
 
   root 'stations#index'
   # The priority is based upon order of creation: first created -> highest priority.

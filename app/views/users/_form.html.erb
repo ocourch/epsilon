@@ -11,30 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :u_id %><br>
-    <%= f.text_field :u_id %>
+  <div class="form-group">
+    <%= f.label :id %><br>
+    <span style="color:black"><%= f.text_field :id %></span>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+    <span style="color:black"><%= f.text_field :first_name %></span>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
+    <span style="color:black"><%= f.text_field :last_name %></span>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :dj_alias %><br>
-    <%= f.text_field :dj_alias %>
+    <span style="color:black"><%= f.text_field :dj_alias %></span>
   </div>
-  <div class="field">
-    <%= f.label :station %><br>
-    <%= f.text_field :station %>
-  </div>
-  <div class="field">
-    <%= f.label :admin %><br>
-    <%= f.check_box :admin %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

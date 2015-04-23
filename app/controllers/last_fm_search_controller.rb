@@ -1,3 +1,9 @@
+
+
+
+require 'pry'
+
+
 class LastFmSearchController < ApplicationController
 
   respond_to :json
@@ -35,15 +41,44 @@ class LastFmSearchController < ApplicationController
    @query = params[:query]
  end
 
- def add_track
+ def add_album
   #render text: params
-  if params[:album_id]
      #Album.create(name: first_album["name"])
      #Artist.create(name: first_album["artist"])
      #album_create_status = Album.find_or_create_by(lastfm_id: params[:album_id])
 
-     @output = album_create_status
-   end
+     #temp_album = Album.new
+
+     artist_name = params[:album_artist]
+     album_name = params[:album_name]
+     lastfm_id = params[:album_id]
+
+     this_artist = Artist.find_or_create_by(name: artist_name)
+
+     this_album = Album.find_or_create_by(artist_id: this_artist.id, name: album_name)
+
+
+    tracks_URI =  "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=949a97d4b7ab1cf6227269acd34f39ce&artist=" + artist_name + "&album=" + album_name + "&format=json"
+    tracks_response = Net::HTTP.get_response(URI.parse(tracks_URI))
+    tracks_json = JSON.parse(tracks_response.body)
+
+    tracks = tracks_json["album"]["tracks"]["track"]
+
+    tracks.each do |track|
+      name = track["name"]
+      duration = track["duration"]
+      this_track = Song.find_or_create_by(title: name, duration: duration, artist_id: this_artist.id,album_id: this_album.id)
+
+    end
+
+
+     #temp_album.lastfm_id = params[:lastfm_id][0]
+     #temp_album.name = params[:album_name][0]
+
+     #temp_album.save
+
+
+     #Album.find_or_create_by(lastfm_id: params[:lastfm_id][0])
  end
 
  def run_tests

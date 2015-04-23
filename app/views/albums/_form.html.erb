@@ -11,27 +11,25 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :artist_id %><br>
-    <%= f.text_field :artist_id %>
+
   </div>
-  <div class="field">
-    <%= f.label :album_id %><br>
-    <%= f.text_field :album_id %>
-  </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :released %><br>
-    <%= f.date_select :released %>
+    <span style="color:black"><%= f.date_select :released %></span>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :record_label %><br>
-    <%= f.text_field :record_label %>
+    <span style="color:black"><%= f.text_field :record_label %></span>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :genre %><br>
-    <%= f.text_field :genre %>
+    <span style="color:black"><%= f.text_field :genre %></span>
+  </div>
+  <div class="form-group">
+    <%= f.label :image_url %><br>
+    <span style="color:black"><%= f.text_field :image_url %></span>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <span style="color:black"><%= f.submit %></span>
   </div>
 <% end %>

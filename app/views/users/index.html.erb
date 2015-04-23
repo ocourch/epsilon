@@ -2,7 +2,7 @@
   <div class="tabs">
     <ul class="tab-links" id="please_center">
       <li class="active">
-        <a href="#tab1">Reviews</a>
+        <a href="#tab1">Recent Albums</a>
       </li>
       <li>
         <a href="#tab2">Hottest Tracks</a>
@@ -15,19 +15,13 @@
       </li>
     </ul>
     <div class="tab-content">
+
       <div class="tab active" id="tab1">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Playlist</th>
-              <th>Review</th>
-              <th>Rating</th>
-            </tr>
-          </thead>
-          <%# render partial:'recent_albums' %>
-        </table>
+        <div id="a_display">
+        <%= render :partial => 'stations/recent_albums' %>
+        </div>
       </div>
+
       <div class="tab" id="tab2">
         <table class="table table-striped">
           <thead>

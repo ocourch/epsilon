@@ -34,7 +34,7 @@ end
 
   Artist.create(name: artist_name, genre: genres.sample, bio: Faker::Lorem.paragraph)
 
-  s.albums << Album.create(genre: genres.sample, location: locations.sample, artist_id: index, name: Faker::Commerce.product_name, released: Faker::Date.between(10.years.ago, Time.now), in_lib?:tf.sample)
+  s.albums << Album.create(genre: genres.sample, location: locations.sample, artist_id: index, name: Faker::Commerce.product_name, released: Faker::Date.between(10.years.ago, Time.now), in_lib?:tf.sample, image_url: "http://i.imgur.com/4BmxKxf.jpg?1")
   
   Song.create(title: Faker::Name.title, album_id: index, artist_id: index)
 

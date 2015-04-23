@@ -4,7 +4,7 @@
 	<div class="col-lg-4">
 		<a href="/albums/<%=a.id%>" class="link3" target="_blank">			
 			<% if a.image_url != nil %>
-			<img class="img-circle" src="a.image_url"  width="140" height="140">
+			<img class="img-circle" src="<%=a.image_url%>"  width="140" height="140">
 			<% else %>
 			<img class="img-circle" src="<%= image_path("rec.png") %>"  width="140" height="140">
 			<% end %>
@@ -29,7 +29,7 @@
 	<div class="col-lg-4">
 		<a href="/albums/<%=a.id%>" class="link3" target="_blank">
 			<% if a.image_url != nil %>
-			<img class="img-circle" src="a.image_url"  width="140" height="140">
+			<img class="img-circle" src="<%=a.image_url%>"  width="140" height="140">
 			<% else %>
 			<img class="img-circle" src="<%= image_path("rec.png") %>"  width="140" height="140">
 			<% end %>
@@ -53,7 +53,7 @@
 	<div class="col-lg-4">
 		<a href="/albums/<%=a.id%>" class="link3" target="_blank">
 			<% if a.image_url != nil %>
-			<img class="img-circle" src="a.image_url"  width="140" height="140">
+			<img class="img-circle" src="<%=a.image_url%>"  width="140" height="140">
 			<% else %>
 			<img class="img-circle" src="<%= image_path("rec.png") %>"  width="140" height="140">
 			<% end %>
@@ -73,7 +73,7 @@
 <br>
 
 <div class="alert alert-info" role="alert" style="text-align:center" >
-	<a class="link2" href="../albums/index"<strong>SEE ALL</strong></a>
+	<a class="link2" href="../albums"<strong>SEE ALL</strong></a>
 </div>
 
 

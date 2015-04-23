@@ -24,10 +24,11 @@ ActiveRecord::Schema.define(version: 20150327172532) do
     t.string   "location"
     t.boolean  "in_lib?"
     t.string   "name"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "lastfm_id"
     t.string   "image_url"
+    t.string   "image_url_large"
   end
 
   create_table "albums_stations", id: false, force: :cascade do |t|
@@ -52,12 +53,10 @@ ActiveRecord::Schema.define(version: 20150327172532) do
     t.datetime "updated_at", null: false
   end
 
-
   create_table "playlist_songs", id: false, force: :cascade do |t|
     t.integer  "playlist_id"
     t.integer  "song_id"
     t.datetime "time_played"
-
   end
 
   create_table "playlists", force: :cascade do |t|
@@ -108,6 +107,7 @@ ActiveRecord::Schema.define(version: 20150327172532) do
     t.string   "last_name"
     t.string   "dj_alias"
     t.boolean  "site_admin"
+    t.integer  "station_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false

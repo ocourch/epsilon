@@ -9,7 +9,6 @@ class CreateAlbums < ActiveRecord::Migration
       t.boolean :in_lib?
       t.string :name
       t.datetime :created_at
-      t.string :image_url
 
       t.timestamps null: false
     end

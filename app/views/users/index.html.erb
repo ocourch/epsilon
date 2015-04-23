@@ -1,117 +1,55 @@
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../favicon.ico">
-
-    <title>Main User Page</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="navbar-fixed-top.css" rel="stylesheet">
-
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-
-  <body>
-
-    <!-- Fixed navbar -->
-    <%= render :partial => 'stations/navbar' %>
-
-
-    
-
-        
 <div class="col-sm-12">
-
   <div class="tabs">
     <ul class="tab-links" id="please_center">
-        <li class="active"><a href="#tab1">Reviews</a></li>
-
-        <li><a href="#tab2">Hottest Tracks</a></li>
-        <li><a href="#tab4">My Playlists</a></li>
-        <li><a href="#tab5">My Info</a></li>
-
+      <li class="active">
+        <a href="#tab1">Reviews</a>
+      </li>
+      <li>
+        <a href="#tab2">Hottest Tracks</a>
+      </li>
+      <li>
+        <a href="#tab4">My Playlists</a>
+      </li>
+      <li>
+        <a href="#tab5">My Info</a>
+      </li>
     </ul>
- 
     <div class="tab-content">
-        <div id="tab1" class="tab active">
+      <div class="tab active" id="tab1">
         <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Playlist</th>
-                <th>Review</th>
-                <th>Rating</th>
-                
-              </tr>
-            </thead>
-            <%# render partial:'recent_albums' %>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Playlist</th>
+              <th>Review</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <%# render partial:'recent_albums' %>
         </table>
-        </div>
- 
-        
- 
-        <div id="tab2" "make_small_recent" class="tab">
-          <table class="table table-striped">
-           <thead>
-              <tr>                
-                <th>Song</th>
-                <th>Album</th>
-                <th>Artist</th>
-              </tr>
-            </thead>
-              <%= render :partial => 'stations/hottest_tracks' %>
-          </table>
-        </div>
-
-        <div id="tab4" "make_small_recent" class="tab">
-          <ul class="list-group">
-            <%= render partial:'playlist_list' %>
-          </ul>
-        </div>
-
-        <div id="tab5" class="tab">
-          Name: <%=current_user.first_name %> <%=current_user.last_name %>
-           
-          <br>
-          Email: <%=current_user.email %>
-
-        </div>
-
-
-        </div>
-        </div>
-        </div>
-        </div>
+      </div>
+      <div class="tab" id="tab2">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Song</th>
+              <th>Album</th>
+              <th>Artist</th>
+            </tr>
+          </thead>
+          <%= render :partial => 'stations/hottest_tracks' %>
+        </table>
+      </div>
+      <div class="tab" id="tab4">
+        <ul class="list-group">
+          <%= render partial:'playlist_list' %>
+        </ul>
+      </div>
+      <div class="tab" id="tab5">
+        Name: <%=current_user.first_name %>
+        <%=current_user.last_name %><br>
+        <a href="mailto:<%=current_user.email %>">Email: <%=current_user.email %></a>
       </div>
     </div>
-  </body>
-    
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
-
-
-<br>
-
-
+  </div>
+</div>

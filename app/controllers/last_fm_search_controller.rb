@@ -1,5 +1,8 @@
-#require "./lib/music_info"
+
+
+
 require 'pry'
+
 
 class LastFmSearchController < ApplicationController
 

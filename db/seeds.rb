@@ -34,9 +34,6 @@ end
   artist_name = Faker::Name.name
 
   Artist.create(name: artist_name, genre: genres.sample, bio: Faker::Lorem.paragraph)
-  
-  
-
 
   s.albums << Album.create(genre: genres.sample, location: locations.sample, artist_id: index, name: Faker::Commerce.product_name, released: Faker::Date.between(10.years.ago, Time.now), in_lib?:tf.sample)
   
@@ -77,7 +74,6 @@ end
 
 s.users << user1
 
-s.users << user2
 
 
 ActiveRecord::Base.connection.tables.each do |table|

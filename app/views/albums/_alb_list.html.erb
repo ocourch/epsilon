@@ -1,0 +1,11 @@
+<% @albums.order("name ASC").each do |a| %>
+	<tbody>
+      <tr>        
+        <td><%= a.name %></td>
+        <td><%= Artist.find(a.artist_id).name %></td>
+        <td><%= a.location %></td>
+        <td><%= a.genre %></td>
+        <td><%= a.released %></td>
+      </tr>
+    </tbody>
+<% end %>

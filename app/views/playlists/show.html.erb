@@ -1,16 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Playlist:</strong>
-  <%= @playlist.title %>
-</p>
+<div class="text-center">
+<h1><%= @playlist.title %></h1>
 
-<p>
-  <strong>Songs:</strong>
-  <%= @playlist.songs.each do |song|
-    link_to song.title, song_path(song)
-  end %>
-</p>
+<%= render 'search' %>
+<%= render 'song_table' %>
+  
+</div>
 
 <%= link_to 'Edit', edit_playlist_path(@playlist) %> |
 <%= link_to 'Back', playlists_path %>

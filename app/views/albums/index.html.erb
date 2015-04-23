@@ -1,35 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="col-sm-12">
+  <div class="tabs">
+    <ul class="tab-links" id = "please_center_s" style="display:block;">
+      <li class="active"><a href="#tab1">Cover View</a></li>
+      <li><a href="#tab2">List View</a></li>
 
-<h1>Listing Albums</h1>
+    </ul>
 
-<table>
-  <thead>
-    <tr>
-      <th>Artist</th>
-      <th>Album</th>
-      <th>Released</th>
-      <th>Record label</th>
-      <th>Genre</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <div class="tab-content">
+    
+      <div id="tab1" class="tab active">
+        <div id="a_display">
+          <%= render partial:'cover_list' %>
+        </div>
+      </div>
 
-  <tbody>
-    <% @albums.each do |album| %>
-      <tr>
-        <td><%= album.artist_id %></td>
-        <td><%= album.album_id %></td>
-        <td><%= album.released %></td>
-        <td><%= album.record_label %></td>
-        <td><%= album.genre %></td>
-        <td><%= link_to 'Show', album %></td>
-        <td><%= link_to 'Edit', edit_album_path(album) %></td>
-        <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <div id="tab2" class="tab">
+        <div id="make_small_recent">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Album</th>
+                <th>Artist</th>
+                <th>Genre</th>
+                <th>Location</th>
+                <th>Released</th>
+              </tr>
+            </thead>
+            <%= render partial:'alb_list' %>
+          </table>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
 
-<br>
-
-<%= link_to 'New Album', new_album_path %>

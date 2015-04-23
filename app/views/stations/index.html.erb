@@ -1,12 +1,12 @@
 <div class="col-sm-12">
   <div class="tabs">
-    <ul class="tab-links" id = "please_center_s">
+    <ul class="tab-links" id = "please_center_s" style="display:block;">
       <li class="active"><a href="#tab1">Recently Added Albums</a></li>
-      <li><a href="#tab3">Hottest Tracks</a></li>
-      <li><a href="#tab4">Our DJs</a></li>
-      <li><a href="#tab5">About Us</a></li>
+      <li><a href="#tab2">Hottest Tracks</a></li>
+      <li><a href="#tab3">Our DJs</a></li>
+      <li><a href="#tab4">About Us</a></li>
       <% if current_user.site_admin %>
-      <li><a href="#tab6">Administrative</a></li>
+      <li><a href="#tab5">Administrative</a></li>
       <% end%>
     </ul>
     <div class="tab-content">
@@ -15,38 +15,41 @@
           <%= render partial:'recent_albums' %>
         </div>
       </div>
-    </div>
-    <div id="tab3" class="tab">
-      <div id="make_small_recent">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Song</th>
-              <th>Album</th>
-              <th>Artist</th>
-            </tr>
-          </thead>
-          <%= render partial:'hottest_tracks' %>
-        </table>
+
+      <div id="tab2" class="tab">
+        <div id="make_small_recent">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Song</th>
+                <th>Album</th>
+                <th>Artist</th>
+              </tr>
+            </thead>
+            <%= render partial:'hottest_tracks' %>
+          </table>
+        </div>
       </div>
-    </div>
-    <div id="tab4" class="tab">
-      <div class="col-sm-4" id="please_center" "make_small_bio">
-        <ul class="list-group">
-          <%= render partial:'dj_list' %>
-        </ul>
+
+      <div id="tab3" class="tab">
+        <div class="col-sm-4" id="please_center" "make_small_bio">
+          <ul class="list-group">
+            <%= render partial:'dj_list' %>
+          </ul>
+        </div>
+        <!-- /.col-sm-4 -->
       </div>
-      <!-- /.col-sm-4 -->
-    </div>
-    <div id="tab5" class="tab">
-      <div class="well" id="make_small_bio">
-        <%= Station.first.bio %>
+      <div id="tab4" class="tab">
+        <div class="well" id="make_small_bio">
+          <%= Station.first.bio %>
+        </div>
       </div>
-    </div>
-    <div id="tab6" class="tab">
-      <div id="please_center_s">
-        <a href="./stations.csv"><button type="button" class="btn btn-primary">Get Report</button></a>
-        <a href="stations/<%=Station.find(1).id%>/edit"><button type="button" class="btn btn-primary">Edit Station</button></a>
+
+      <div id="tab5" class="tab">
+        <div id="please_center_s">
+          <a href="./stations.csv"><button type="button" class="btn btn-primary">Get Report</button></a>
+          <a href="stations/<%=Station.find(1).id%>/edit"><button type="button" class="btn btn-primary">Edit Station</button></a>
+        </div>
       </div>
     </div>
   </div>

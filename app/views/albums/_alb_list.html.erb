@@ -1,10 +1,10 @@
 <% @albums.order("name ASC").each do |a| %>
 	<tbody>
       <tr>        
-        <td><%= a.name %></td>
+        <td><a href="/albums/<%=a.id%>"><%=a.name%></a></td>
         <td><%= Artist.find(a.artist_id).name %></td>
-        <td><%= a.location %></td>
         <td><%= a.genre %></td>
+        <td><%= a.location %></td>
         <td><%= a.released %></td>
       </tr>
     </tbody>

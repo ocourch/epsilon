@@ -1,8 +1,6 @@
-var converter = new Showdown.converter();
 
 var Song = React.createClass({
   render: function() {
-    var rawMarkup = converter.makeHtml(this.props.children.toString());
     return(
       <tr>
         <td>{this.props.title}</td>
@@ -35,7 +33,7 @@ var Playlist = React.createClass({
         url: this.props.url,
         dataType: 'json',
         type: 'POST',
-        data: {song: song}
+        data: {song: song},
         success: function() {
           this.setState({data: data})
         }.bind(this),

@@ -73,6 +73,7 @@ user2 = User.create! :site_admin => false, :email => 'jochs@brandeis.edu', :pass
 end
 
 s.users << user1
+s.users << user2
 
 
 

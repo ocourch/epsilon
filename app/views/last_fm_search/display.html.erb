@@ -3,9 +3,6 @@
 
 <% if @albums %>
 
-<!--<h3>Albums:</h3>//-->
-
-
 <div class="col-md-12" id="custom_display">
   <table class="table">
     <thead>
@@ -29,6 +26,8 @@
         <%= hidden_field_tag 'album_name', album["name"] %>
         <%= hidden_field_tag 'album_artist', album["artist"] %>
         <%= hidden_field_tag 'album_id', album["id"] %>
+        <%= hidden_field_tag 'album_image', album["image"][2]["#text"]%>
+        <%= hidden_field_tag 'album_image_large', album["image"][3]["#text"] %>
         <%= submit_tag("Add") %>
         <% end %>
       </td>
@@ -39,44 +38,3 @@
 </table>
 </div>
 <% end %>
-
-
-<!--<% if @artists %>
-<h3>Artists:</h3>
-<table border = "1">
-  <tr>
-    <td>Name</td>
-    <td>Art</td>
-  </tr>
-  <% @artists.each do |artist| %>
-  <tr>
-    <td><%= artist["name"] %></td>
-    <td><img src="<%= artist["image"][1]["#text"] %>"></td>
-  </tr>
-  <% end %>
-</table>
-<% end %>
-
-
-<% if @tracks %>
-<h3>Tracks:</h3>
-<table border = "1">
-  <tr>
-    <td>Name</td>
-    <td>Artist</td>
-  </tr>
-  <% @tracks.each do |track|%>
-  <tr>
-    <td><%= track["name"] %></td>
-    <td><%= track["artist"] %></td>
-  </tr>
-  <% end %>
-</table>
-
-
-
-
-
-<% end %>
-
-

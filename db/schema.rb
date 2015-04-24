@@ -24,10 +24,11 @@ ActiveRecord::Schema.define(version: 20150327172532) do
     t.string   "location"
     t.boolean  "in_lib?"
     t.string   "name"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "lastfm_id"
     t.string   "image_url"
+    t.string   "image_url_large"
   end
 
   create_table "albums_stations", id: false, force: :cascade do |t|
@@ -107,10 +108,24 @@ ActiveRecord::Schema.define(version: 20150327172532) do
     t.string   "dj_alias"
     t.boolean  "site_admin"
     t.integer  "station_id"
+
     t.string   "byline"
     t.string   "bio"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+
+
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+
   end
 
 end

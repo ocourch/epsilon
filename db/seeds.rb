@@ -28,7 +28,6 @@ s = Station.find(1)
 end
 
 
-
 #makes music and adds to station
 (1..10).each do |index|
   artist_name = Faker::Name.name
@@ -37,12 +36,9 @@ end
 
   s.albums << Album.create(genre: genres.sample, location: locations.sample, artist_id: index, name: Faker::Commerce.product_name, released: Faker::Date.between(10.years.ago, Time.now), in_lib?:tf.sample, image_url: "http://i.imgur.com/4BmxKxf.jpg?1")
   
-   
-
-  Song.create(title: Faker::Name.title, album_id: index, artist_id: index)
+  Song.create(title: Faker::Name.title, album_id: index, artist_id: index, duration: 555)
 
 end
-
 
 
 #adds Oscar as a user
@@ -51,8 +47,7 @@ user1 = User.create! :site_admin => true, :email => 'oscar.courchaine@gmail.com'
 
 user2 = User.create! :site_admin => false, :email => 'jochs@brandeis.edu', :password => '12345678', :password_confirmation => '12345678', first_name: 'Jess', last_name: 'Ochs-Willard' ,dj_alias: 'DJ Flashy'
 
-
-
+user3 = User.create! :site_admin => true, :email => 'ethteck@gmail.com', :password => 'asdfasdf', :password_confirmation => 'asdfasdf', first_name: 'Ethan', last_name: 'Roseman', dj_alias: 'DJ Moose'
 
 #gives oscar playlists
 (1..6).each do |index|
@@ -75,12 +70,10 @@ end
 s.users << user1
 s.users << user2
 
-
-
+# Resets table auto increment ID so seeding doesn't break everything
 ActiveRecord::Base.connection.tables.each do |table|
   result = ActiveRecord::Base.connection.execute("SELECT id FROM #{table} ORDER BY id DESC LIMIT 1") rescue ( puts "Warning: not procesing table #{table}. Id is missing?" ; next )
   ai_val = result.any? ? result.first['id'].to_i + 1 : 1
   puts "Resetting auto increment ID for #{table} to #{ai_val}"
   ActiveRecord::Base.connection.execute("ALTER SEQUENCE #{table}_id_seq RESTART WITH #{ai_val}")
 end
-

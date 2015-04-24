@@ -68,6 +68,7 @@ user3 = User.create! :site_admin => true, :email => 'ethteck@gmail.com', :passwo
 end
 
 s.users << user1
+s.users << user2
 
 # Resets table auto increment ID so seeding doesn't break everything
 ActiveRecord::Base.connection.tables.each do |table|

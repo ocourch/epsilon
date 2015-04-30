@@ -8,7 +8,7 @@ class LastFmSearchController < ApplicationController
   end
 
   def display
-   result_limit = 10
+   result_limit = 12
    limit_snip = "&limit=" + result_limit.to_s
 
    begin_snip = "http://ws.audioscrobbler.com/2.0/"

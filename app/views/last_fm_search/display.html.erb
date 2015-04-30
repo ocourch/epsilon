@@ -2,39 +2,7 @@
 <h2>Search results for "<%= @query %>":</h2>
 
 <% if @albums %>
-
-<div class="col-md-12" id="custom_display">
-  <table class="table">
-    <thead>
-
-    	<tr>
-    		<td><h1>Cover</h1></td>
-    		<td><h1>Name</h1></td>
-    		<td><h1>Artist</h1></td>
-    		<td><h1>Add to Library</h1></td>
-    	</tr>
-
-    </thead>
-   <% @albums.each do |album|%>
-   <tbody>
-     <tr>
-      <td><img src="<%= album["image"][2]["#text"] %>"></td>
-      <td><%= album["name"] %></td>
-      <td><%= album["artist"] %></td>
-      <td id="mybutton">
-        <%= form_tag(:action => "add_album") do %>
-        <%= hidden_field_tag 'album_name', album["name"] %>
-        <%= hidden_field_tag 'album_artist', album["artist"] %>
-        <%= hidden_field_tag 'album_id', album["id"] %>
-        <%= hidden_field_tag 'album_image', album["image"][2]["#text"]%>
-        <%= hidden_field_tag 'album_image_large', album["image"][3]["#text"] %>
-        <%= submit_tag("Add") %>
-        <% end %>
-      </td>
-     </tr>
-    </tbody>
-  <% end %>
-
-</table>
+<div class="col-md-12">
+  <%= render partial:'cover_list_display' %>
 </div>
 <% end %>

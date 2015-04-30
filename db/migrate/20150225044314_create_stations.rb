@@ -4,6 +4,7 @@ class CreateStations < ActiveRecord::Migration
       t.string :call_letters
       t.string :location
       t.string :bio
+      t.string :website
 
       t.timestamps null: false
     end

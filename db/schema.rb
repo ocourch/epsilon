@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 20150327172532) do
     t.string   "call_letters"
     t.string   "location"
     t.string   "bio"
+    t.string   "website"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
@@ -108,11 +109,8 @@ ActiveRecord::Schema.define(version: 20150327172532) do
     t.string   "dj_alias"
     t.boolean  "site_admin"
     t.integer  "station_id"
-
     t.string   "byline"
     t.string   "bio"
-
-
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false
@@ -125,7 +123,9 @@ ActiveRecord::Schema.define(version: 20150327172532) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

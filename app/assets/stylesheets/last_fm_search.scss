@@ -3,40 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #custom_display{
-	table{
 
-		thead{
-			tr{
-				border: 20px solid white;
-				background-color: #2e7fe6;
-				color: #eee;
-				
-				td{
-					font-weight: bold;
-				}			
-			}
-		}
-
-		tbody{
-			
-			tr{
-				border: 15px solid white;
-				
-				background-color: #96BFF2;
-				color: #00190C;
-
-				td{
-					vertical-align: middle;
-					font-size: 1.5em;
-				}
-			}
-		}
+	img{
+		background-color: #96BFF2;
+	color: #2e7fe6;
 	}
-	
+
+	border: 15px solid white;
+
+
+	color: #2e7fe6;
+
+
 }
 
 
 
+
 #mybutton{
-	color: #005229;
+color: #005229;
 }

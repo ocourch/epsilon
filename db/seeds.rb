@@ -63,12 +63,20 @@ user3 = User.create! :site_admin => true, :email => 'ethteck@gmail.com', :passwo
 		t = r.rand(150..350)
 		p.songs << Song.create(title: Faker::Name.title, album_id: index, artist_id: index, duration: t)
 	end
+	p2 = Playlist.create(title: Faker::Commerce.product_name, user_id: user2.id)
+	(1..6).each do |index|
+		r = Random.new
+		t = r.rand(150..350)
+		p.songs << Song.create(title: Faker::Name.title, album_id: index, artist_id: index, duration: t)
+	end
 	user1.playlists << p
 	user2.playlists << p1
+	user3.playlists << p2
 end
 
 s.users << user1
 s.users << user2
+s.users << user3
 
 # Resets table auto increment ID so seeding doesn't break everything
 ActiveRecord::Base.connection.tables.each do |table|

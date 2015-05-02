@@ -1,4 +1,4 @@
-<%reviews = Review.where(album_id: album_id)%>
+<%reviews = Review.where(album_id: album_id).limit(5)%>
 <div id="reviewContainer">
 <% if reviews.length > 0 %>
   <h2>Reviews:</h2>
@@ -11,12 +11,13 @@
   <% reviews.each do |review| %>
     <tr>
       <td><%= review.user.dj_alias %></td>
-      <td><%= review.text %></td>
+      <td><%= truncate(review.text, :length => 100, :separator => ' ') %></td>
       <td><%= link_to 'Full Text', review_path(review) %></td>
     </tr>
   <% end %>
+    <tr class="text-center"><td colspan=3><%= link_to 'See All Reviews' %></td></tr>
   </table>
 <% else %>
-  <div>This album has not yet been reviewed. Be the first to <%=link_to 'write one', new_review_path(:review_album_id: album_id)%>!</div>
+  <div class="text-center">This album has not yet been reviewed. Be the first to <%=link_to 'write one', new_review_path(review_album_id: album_id)%>!</div>
 <% end %>
 </div>

@@ -47,4 +47,6 @@
     </thead>
     <%= render partial:'al_songs' %>
   </table>
+  <%= render partial: 'review_snippet', locals: {album_id: @album.id} %>
 </div>
+

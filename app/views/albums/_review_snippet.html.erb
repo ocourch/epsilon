@@ -1,0 +1,22 @@
+<%reviews = Review.where(album_id: album_id)%>
+<div id="reviewContainer">
+<% if reviews.length > 0 %>
+  <h2>Reviews:</h2>
+  <table class="table">
+    <thead>
+      <th>DJ</th>
+      <th>Review Text</th>
+      <th>Full Text</th>
+    </thead>
+  <% reviews.each do |review| %>
+    <tr>
+      <td><%= review.user.dj_alias %></td>
+      <td><%= review.text %></td>
+      <td><%= link_to 'Full Text', review_path(review) %></td>
+    </tr>
+  <% end %>
+  </table>
+<% else %>
+  <div>This album has not yet been reviewed. Be the first to <%=link_to 'write one', new_review_path(:review_album_id: album_id)%>!</div>
+<% end %>
+</div>

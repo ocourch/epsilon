@@ -32,9 +32,10 @@
       <strong>Location:</strong>
       <%= @album.location %>
     </p>
-    
+    <span>
     <a href="<%=@album.id%>/edit"><button type="button" class="btn btn-primary">Edit Album Info  </button></a>
-    <a href="<%=new_review_path%>"><button type="button" class="btn btn-primary">Write Review</button></a>
+    <a href="<%=new_review_path(review_album_id: @album.id)%>"><button type="button" class="btn btn-primary">Write Review</button></a></span>
+    <div id="reviewButtonContainer"><a href="#reviewContainer"><button type="button" class="btn btn-primary">See Reviews</button></a>
   </div>
   </div>
     

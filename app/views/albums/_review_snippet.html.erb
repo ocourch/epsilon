@@ -12,7 +12,7 @@
     <tr>
       <td><%= review.user.dj_alias %></td>
       <td><%= truncate(review.text, :length => 100, :separator => ' ') %></td>
-      <td><%= link_to 'Full Text', review_path(review) %></td>
+      <td><%= link_to 'See Full Review', review_path(review) %></td>
     </tr>
   <% end %>
     <tr class="text-center"><td colspan=3><%= link_to 'See All Reviews' %></td></tr>

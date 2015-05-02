@@ -10,14 +10,14 @@ var Song = React.createClass({
 
   render: function() {
     return (
-      <div>
-        <div>Title: {this.props.title}</div>
-        <div>Artist: {this.props.artist}</div>
-        <div>Album: {this.props.album}</div>
-        <div>Duration: {this.props.duration}</div>
-        <div>Time Played: {this.props.time_played}</div>
-        <div>Location: {this.props.location}</div>
-      </div>
+      <tr>
+        <td>{this.props.time_played}</td>
+        <td>{this.props.title}</td>
+        <td>{this.props.artist}</td>
+        <td>{this.props.album}</td>
+        <td>{this.props.duration}</td>
+        <td>{this.props.location}</td>
+      </tr>
     );
   }
 });

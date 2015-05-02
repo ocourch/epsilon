@@ -1,10 +1,8 @@
 
 <% @album.songs.each_with_index do |s, i| %>
-	<tbody>
-      <tr>
-        <td><%= i+1 %></td>
-        <td><%= s.title %></td>
-        <td><%=(s.duration / 60).to_s + ":" + (s.duration % 60).to_s.rjust(2,'0')%></td>
-      </tr>
-    </tbody>
+  <tr>
+    <td><%= i+1 %></td>
+    <td><%= s.title %></td>
+    <td><%=(s.duration / 60).to_s + ":" + (s.duration % 60).to_s.rjust(2,'0')%></td>
+  </tr>
 <% end %>

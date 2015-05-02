@@ -1,28 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Playlists</h1>
-
-<table>
+<h1 class="text-center">Playlists</h1>
+<table class="table" id="playlistContainer">
   <thead>
     <tr>
+      <th>Last Updated</th>
       <th>Title</th>
       <th>Show Name</th>
-      <th colspan="2"></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% current_user.playlists.each do |playlist| %>
+    <% current_user.playlists.order(played_at: :desc).each do |playlist| %>
       <tr>
-        <td><%= playlist.title %></td>
+        <td><%= playlist.played_at %></td>
+        <td><%= link_to playlist.title, playlist %></td>
         <td><%= playlist.show_name %></td>
-        <td><%= link_to 'View', playlist %></td>
         <td><%= link_to 'Delete', playlist, method: :delete, data: { confirm: 'Are you sure you want to delete this playlist?' } %></td>
       </tr>
     <% end %>
+    <tr>
+      <td colspan="4" class="text-center"><%= link_to 'New Playlist', new_playlist_path %></td>
+    </tr>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Playlist', new_playlist_path %>

@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20150327172532) do
     t.string   "user_id"
     t.string   "title"
     t.string   "show_name"
+    t.datetime "played_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,6 +1,5 @@
-<%reviews = Review.where(album_id: album_id).limit(5)%>
 <div id="reviewContainer">
-<% if reviews.length > 0 %>
+<% if @reviews.length > 0 %>
   <h2>Reviews:</h2>
   <table class="table">
     <thead>

@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 # better errors for sprockets - precompile errors when pushing to heroku
 gem 'sprockets_better_errors'
+# force sprocket version
+gem 'sproket', '~> 2.11.0'
 #Add bower support
 gem 'bower-rails'
 #Add hooks for elasticsearch

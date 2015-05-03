@@ -7,9 +7,9 @@
       <th>Review Text</th>
       <th>Full Text</th>
     </thead>
-  <% reviews.each do |review| %>
+  <% @reviews.each do |review| %>
     <tr>
-      <td><%= review.user.dj_alias %></td>
+      <td><%= link_to review.user.dj_alias, user_path(review.user) %></td>
       <td><%= truncate(review.text, :length => 100, :separator => ' ') %></td>
       <td><%= link_to 'See Full Review', review_path(review) %></td>
     </tr>

@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# better errors for sprockets - precompile errors when pushing to heroku
+gem 'sprockets_better_errors'
 #Add bower support
 gem 'bower-rails'
 #Add hooks for elasticsearch

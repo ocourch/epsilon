@@ -11,19 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :call_letters %><br>
-    <%= f.text_field :call_letters %>
+    <span style="color:black"><%= f.text_field :call_letters %></span>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :location %><br>
-    <%= f.text_field :location %>
+    <span style="color:black"><%= f.text_field :location %></span>
   </div>
-  <div class="field">
-    <%= f.label :station_id %><br>
-    <%= f.text_field :station_id %>
+  <div class="form-group">
+    <%= f.label :bio %><br>
+    <span style="color:black"><%= f.text_area :bio %></span>
   </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <span style="color:black"><%= f.submit %></span>
   </div>
 <% end %>

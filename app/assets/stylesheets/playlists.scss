@@ -45,8 +45,16 @@
   margin: 0 auto;
   margin-top: 2em;
   width: 800px;
+  tr {
+    text-align: left;
+  }
 }
 
 #search {
   text-align: center;
+}
+
+#playlistContainer {
+  width: 800px;
+  margin: 0 auto;
 }

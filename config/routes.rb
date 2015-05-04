@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
+  get 'tests/tests'
+
   get 'last_fm_search/search'
+  get 'last_fm_search/run_tests'
 
   get 'last_fm_search/display'
   post 'last_fm_search/display'
 
   get 'last_fm_search/add_track'
   post 'last_fm_search/add_track'
+
+  get 'last_fm_search/add_album'
+  post 'last_fm_search/add_album'
   
 
   resources :station_albums
@@ -14,7 +20,7 @@ Rails.application.routes.draw do
   
   resources :stations
   
-  resources :reviews
+  resources :reviews, only: [:new, :show]
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -25,7 +31,11 @@ Rails.application.routes.draw do
 
   resources :stations
 
-  resources :users
+  resources :users do
+    collection do
+      get :reviews
+    end
+  end
 
   resources :playlist_songs
 
@@ -41,6 +51,9 @@ Rails.application.routes.draw do
     collection do
       get :autocomplete
     end
+    member do
+      get :reviews
+    end
   end
 
   resources :songs do
@@ -48,6 +61,9 @@ Rails.application.routes.draw do
       get :autocomplete
     end
   end
+
+
+  
 
   root 'stations#index'
   # The priority is based upon order of creation: first created -> highest priority.

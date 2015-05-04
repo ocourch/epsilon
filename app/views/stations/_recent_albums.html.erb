@@ -1,11 +1,78 @@
-<% Station.first.albums.order("created_at DESC").limit(10).each_with_index do |a, i| %>
-	<tbody>
-      <tr>
-        <td><%= i+1 %></td>
-        <td><%= a.name %></td>
-        <td><%= Artist.find(a.artist_id).name %></td>
-        <td><%= a.genre %></td>
-        <td><%= a.released %></td>
-      </tr>
-    </tbody>
-<% end %>
+<div class="row">
+	<% Station.first.albums.order("created_at DESC").limit(3).each_with_index do |a, i| %>	
+
+	<div class="col-lg-4">
+		<a href="/albums/<%=a.id%>" class="link3" target="_blank">			
+			<% if a.image_url != nil %>
+			<img class="img-circle" src="<%=a.image_url%>"  width="140" height="140">
+			<% else %>
+			<img class="img-circle" src="<%= image_path("rec.png") %>"  width="140" height="140">
+			<% end %>
+		</a>
+		
+		<h2><%= a.name %></h2>
+		<p>
+			<strong>BY: </strong><%= Artist.find(a.artist_id).name %><br>
+			<strong>LOCATION: </strong><%= a.location %><br>
+			<strong># Songs: </strong><%= a.songs.size %>
+
+		</p>
+	</div>
+
+	
+	<% end %>
+</div>
+
+<div class="row">
+	<% Station.first.albums.offset(3).order("created_at DESC").limit(3).each_with_index do |a, i| %>
+	<div class="col-lg-4">
+		<a href="/albums/<%=a.id%>" class="link3" target="_blank">
+			<% if a.image_url != nil %>
+			<img class="img-circle" src="<%=a.image_url%>"  width="140" height="140">
+			<% else %>
+			<img class="img-circle" src="<%= image_path("rec.png") %>"  width="140" height="140">
+			<% end %>
+		</a>
+		<h2><%= a.name %></h2>
+		<p>
+			<strong>BY: </strong><%= Artist.find(a.artist_id).name %><br>
+			<strong>GENRE: </strong><%= a.genre %><br>
+			<strong>LOCATION: </strong><%= a.location %><br>
+			<strong># Songs: </strong><%= a.songs.size %>
+
+		</p>
+	</div>
+
+	<% end %>
+</div>
+
+<div class="row">
+	<% Station.first.albums.offset(6).order("created_at DESC").limit(3).each_with_index do |a, i| %>
+
+	<div class="col-lg-4">
+		<a href="/albums/<%=a.id%>" class="link3" target="_blank">
+			<% if a.image_url != nil %>
+			<img class="img-circle" src="<%=a.image_url%>"  width="140" height="140">
+			<% else %>
+			<img class="img-circle" src="<%= image_path("rec.png") %>"  width="140" height="140">
+			<% end %>
+		</a>
+		<h2><%= a.name %></h2>
+		<p>
+			<strong>BY: </strong><%= Artist.find(a.artist_id).name %><br>
+			<strong>GENRE: </strong><%= a.genre %><br>
+			<strong>LOCATION: </strong><%= a.location %><br>
+			<strong># Songs: </strong><%= a.songs.size %>
+
+		</p>
+	</div>
+
+	<% end %>
+</div>
+<br>
+
+<div class="alert alert-info" role="alert" style="text-align:center" >
+	<a class="link2" href="../albums"<strong>SEE ALL</strong></a>
+</div>
+
+

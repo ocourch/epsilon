@@ -1,18 +1,5 @@
-var converter = new Showdown.converter();
 
-var Song = React.createClass({
-  render: function() {
-    var rawMarkup = converter.makeHtml(this.props.children.toString());
-    return(
-      <tr>
-        <td>{this.props.title}</td>
-        <td>{this.props.album}</td>
-        <td>{this.props.artist}</td>
-        <td>{this.props.time_played}</td>
-      </tr>
-      );
-  }
-});
+
 
 var Playlist = React.createClass({
   loadSongsFromServer: function() {
@@ -35,7 +22,7 @@ var Playlist = React.createClass({
         url: this.props.url,
         dataType: 'json',
         type: 'POST',
-        data: {song: song}
+        data: {song: song},
         success: function() {
           this.setState({data: data})
         }.bind(this),
@@ -76,10 +63,8 @@ var SongList = React.createClass({
         // `key` is a React-specific concept and is not mandatory for the
         // purpose of this tutorial. if you're curious, see more here:
         // http://facebook.github.io/react/docs/multiple-components.html#dynamic-children
-        <Song key={index}>
-  
-        </Song>
-      );
+        <Song key={index} />
+        );
     });
     return (
       {songNodes}

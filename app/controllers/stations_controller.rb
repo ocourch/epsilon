@@ -5,11 +5,44 @@ class StationsController < ApplicationController
   # GET /stations.json
   def index
     @stations = Station.all
+    #csv 
+    @played = []
+    Station.first.users.each do |u|
+      u.playlists.where("updated_at > ?", Date.today).each do |p|
+          @played << p
+      end
+    end
+
+    @data = Hash.new
+    counter = 0
+    if !@played.empty?
+      @played.each do |pl|
+        b1 = pl.updated_at.to_s.split("-")
+        b2 = b1[2].split(" ")
+        b3 = b2[1].split(":")
+        start_time = Time.new(b1[0], b1[1], b2[0], b3[0], b3[1], b3[2], "+00:00")
+
+        pl.songs.each do |s|
+          s.updated_at = start_time
+          @data[counter] = s
+          counter += 1
+          start_time = start_time + s.duration
+        end
+      end
+    end   
+    
+    respond_to do |format|
+      format.html
+      f = Time.now.to_s.truncate(10, omission: "")
+      format.csv { send_data Song.to_csv(@data), filename:"Station Report #{f}.csv" }
+    end
+  
   end
 
   # GET /stations/1
   # GET /stations/1.json
   def show
+     redirect_to "/" 
   end
 
   # GET /stations/new
@@ -69,6 +102,6 @@ class StationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def station_params
-      params.require(:station).permit(:call_letters, :location, :station_id)
+      params.require(:station).permit(:call_letters, :location, :station_id, :bio)
     end
 end

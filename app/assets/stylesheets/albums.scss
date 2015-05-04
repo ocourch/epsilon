@@ -1,3 +1,43 @@
 // Place all the styles related to the Albums controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#please_center_a{
+    margin-left: 390px;
+    margin-right: auto;
+    width: 80%;
+}
+
+#song_table {
+  margin-top: 20px;
+}
+
+.content-container {
+  width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+#albumInfo {
+  float: right;
+  margin-top: 40px;
+}
+
+.top-info {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.image-container {
+  float: left;
+  margin-bottom: 20px;
+}
+
+#reviewContainer {
+  margin: 0 auto;
+}
+
+#reviewButtonContainer {
+  text-align: center;
+  margin: 6px auto;
+}

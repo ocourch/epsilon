@@ -48,6 +48,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
+  gem 'quiet_assets'
+
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
@@ -56,10 +58,18 @@ group :development, :test do
 
   # Generate mocked data
   gem 'faker'
+
+  # Debugging
+  gem 'pry'
+
+  # Debugging
+  gem 'pry-byebug'
 end
 
 source 'https://rails-assets.org' do
-  gem 'rails-assets-bootstrap' 
+  gem 'rails-assets-bootstrap'
   gem 'rails-assets-typeahead.js'
   gem 'rails-assets-backbone'
 end
+
+gem 'react-rails', '~> 1.0'

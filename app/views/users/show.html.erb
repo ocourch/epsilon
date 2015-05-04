@@ -1,34 +1,47 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>U:</strong>
-  <%= @user.u_id %>
-</p>
-
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
-
-<p>
-  <strong>Dj alias:</strong>
-  <%= @user.dj_alias %>
-</p>
-
-<p>
-  <strong>Station:</strong>
-  <%= @user.station %>
-</p>
-
-<p>
-  <strong>Admin:</strong>
-  <%= @user.admin %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="col-sm-12">
+  <div class="tabs">
+    <ul class="tab-links" id="please_center">
+      <li class="active"><a href="#tab1">Reviews</a></li>
+      <li><a href="#tab2">Hottest Tracks</a></li>
+      <li><a href="#tab4">Playlists</a></li>
+      <li><a href="#tab5">DJ Info</a></li>
+    </ul>
+    <div class="tab-content">
+      <div id="tab1" class="tab active">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Playlist</th>
+              <th>Review</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <%# render partial:'recent_albums' %>
+        </table>
+      </div>
+      <div id="tab2" "make_small_recent" class="tab">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Song</th>
+              <th>Album</th>
+              <th>Artist</th>
+            </tr>
+          </thead>
+          <%= render :partial => 'stations/hottest_tracks' %>
+        </table>
+      </div>
+      <div id="tab4" "make_small_recent" class="tab">
+        <ul class="list-group">
+          <%= render partial:'playlist_list_other' %>
+        </ul>
+      </div>
+      <div id="tab5" class="tab">
+        Name: <%=@user.first_name %> <%=@user.last_name %>
+        <br>
+        Email: <%=@user.email %>
+      </div>
+    </div>
+  </div>
+</div>

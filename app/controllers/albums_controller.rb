@@ -1,6 +1,11 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: [:show, :edit, :update, :destroy]
 
+  def reviews
+    @album = Album.find(params[:id])
+    @reviews = Review.where(album_id: params[:id])
+  end
+  
   def autocomplete
     render json: Album.search(params[:query], fields: [{name: :word_start}])
   end
@@ -13,6 +18,7 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
+    @reviews = Review.where(album_id: params[:id]).order(updated_at: :desc).limit(5)
   end
 
   # GET /albums/new
@@ -72,6 +78,6 @@ class AlbumsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def album_params
-      params.require(:album).permit(:artist_id, :album_id, :released, :record_label, :genre)
+      params.require(:album).permit(:artist_id, :album_id, :released, :record_label, :genre, :image_url)
     end
 end

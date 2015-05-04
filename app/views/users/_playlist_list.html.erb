@@ -1,3 +1,5 @@
+<li class="list-group-item"><a href="../playlists/new"><button type="button" class="btn btn-primary">+ New Playlist </button></a></li>
+
 <% current_user.playlists.find_each do |d| %>
 	<li class="list-group-item"><%=d.title%></li>
 <% end %>

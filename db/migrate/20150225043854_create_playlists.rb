@@ -1,9 +1,12 @@
 class CreatePlaylists < ActiveRecord::Migration
   def change
     create_table :playlists do |t|
-      t.integer :user_id
+      t.string :user_id
       t.string :title
-      t.string :show_name      
+      t.string :show_name
+      t.datetime :played_at
+
+      t.timestamps null: false
     end
   end
 end

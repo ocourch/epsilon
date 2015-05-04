@@ -1,166 +1,57 @@
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../favicon.ico">
-
-    <title>Main Station Page</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="navbar-fixed-top.css" rel="stylesheet">
-
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-
-  <body>
-
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="../stations">Epsilon</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="../users">DJs</a></li>
-            <li><a href="../playlists">Playlists</a></li>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="../last_fm_search/search/">Search</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="panel panel-success">
-            <div class="panel-heading">
-              <h3 class="panel-title"><%= Station.first.call_letters %></h3>
-            </div>
-            <div class="panel-body" style="min-height: 1000">
-              <%= Station.first.bio %>            
-            </div>
-          </div>
-          <div class="panel panel-success">
-            <div class="panel-heading">
-              <h3 class="panel-title">Now Playing</h3>
-            </div>
-            <div class="panel-body">
-              Shows the current broadcsting song
-            </div>
-          </div>
-          <div class="panel panel-success">
-            <div class="panel-heading">
-              <h3 class="panel-title">Our DJs</h3>
-            </div>
-            <div class="panel-body">
-              <div class="col-md-12">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th>DJ Alias</th>                    
-                  </tr>
-                </thead>
-                <%= render partial:'dj_list' %>
-              </table>
-              </div>
-            </div>
-          </div>
-          <a href="./stations.csv"><button type="button" class="btn btn-success">Get Report</button></a>
-          <br>
-          <br>
-        </div>
-        <div class="col-sm-8">
-          <div class="panel panel-success">
-            <div class="panel-heading">
-
-              <h3 class="panel-title">Media</h3>
-
-            </div>
-            <div class="panel-body">
-               <div class="tabs">
-    <ul class="tab-links">
-        <li class="active"><a href="#tab1">Recently Added Albums</a></li>
-        <li><a href="#tab2">Station Library</a></li>
-        <li><a href="#tab3">Hottest Tracks</a></li>
-
+<div class="col-sm-12">
+  <div class="tabs">
+    <ul class="tab-links" id = "please_center_s">
+      <li class="active"><a href="#tab1">Recently Added Albums</a></li>
+      <li><a href="#tab2">Hottest Tracks</a></li>
+      <li><a href="#tab3">Our DJs</a></li>
+      <li><a href="#tab4">About Us</a></li>
+      <% if current_user.site_admin %>
+      <li><a href="#tab5">Administrative</a></li>
+      <% end%>
     </ul>
- 
     <div class="tab-content">
-        <div id="tab1" class="tab active">
-        <table class="table table-striped">
+
+      <div id="tab1" class="tab active">
+        <div id="a_display">
+          <%= render partial:'recent_albums' %>
+        </div>
+      </div>
+
+      <div id="tab2" class="tab">
+        <div id="make_small_recent">
+          <table class="table table-striped">
             <thead>
               <tr>
-                <th>#</th>
+                <th>Song</th>
                 <th>Album</th>
                 <th>Artist</th>
-                <th>Genre</th>
-                <th>Released</th>
               </tr>
             </thead>
-            <%= render partial:'recent_albums' %>
-        </table>
-        </div>
- 
-        <div id="tab2" class="tab">
-         <table class="table table-striped">
-           <thead>
-              <tr>                
-                <th>Album</th>
-                <th>Artist</th>
-                <th>Location</th>
-                <th>Genre</th>
-                <th>Released</th>
-              </tr>
-            </thead>
-            <%= render partial:'full_library' %>
+            <%= render partial:'hottest_tracks' %>
           </table>
         </div>
- 
-        <div id="tab3" class="tab">
-            <%= render partial:'hottest_tracks' %>
+      </div>
+
+      <div id="tab3" class="tab">
+        <div class="col-sm-4" id="please_center" "make_small_bio">
+          <ul class="list-group">
+            <%= render partial:'dj_list' %>
+          </ul>
         </div>
+        <!-- /.col-sm-4 -->
+      </div>
+      <div id="tab4" class="tab">
+        <div class="well" id="make_small_bio">
+          <%= Station.first.bio %>
         </div>
+      </div>
+
+      <div id="tab5" class="tab">
+        <div id="please_center_s">
+          <a href="./stations.csv"><button type="button" class="btn btn-primary">Get Report</button></a>
+          <a href="stations/<%=Station.find(1).id%>/edit"><button type="button" class="btn btn-primary">Edit Station</button></a>
         </div>
-        </div>
-        </div>          
       </div>
     </div>
-  </body>
-    
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-  </body>
-</html>
+  </div>
+</div>

@@ -11,8 +11,8 @@
   color: #999
 }
 
-.tt-dropdown-menu {
-  width: 300px;
+.tt-menu {
+  width: 500px;
   margin-top: 4px;
   padding: 4px 0;
   background-color: #fff;
@@ -29,6 +29,7 @@
 .tt-suggestion {
   padding: 3px 20px;
   line-height: 24px;
+  width: inherit;
 }
 
 .tt-suggestion.tt-cursor {

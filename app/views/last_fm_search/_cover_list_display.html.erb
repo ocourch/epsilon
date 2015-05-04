@@ -1,0 +1,64 @@
+<div id="custom_display">
+
+	<% @albums.each_with_index do |album, i| %>	
+	<%if i==0 || i==3 || i==6 || i==9 %>
+	<div class="row">
+		<div class="col-lg-4">
+
+			<% if album["image"][2]["#text"] != nil %>
+			<img class="img-circle" src="<%= album["image"][2]["#text"] %>" width="140" height="140">
+			<% else %>
+			<img class="img-circle" src="<%= image_path("rec.png") %>"  width="140" height="140">
+			<% end %>
+			
+			
+			<h2><%= album["name"] %></h2>
+			<p>
+				<strong>BY: </strong><%= album["artist"] %><br>
+				<div>
+					<%= form_tag(:action => "add_album") do %>
+					<%= hidden_field_tag 'album_name', album["name"] %>
+					<%= hidden_field_tag 'album_artist', album["artist"] %>
+					<%= hidden_field_tag 'album_id', album["id"] %>
+					<%= hidden_field_tag 'album_image', album["image"][2]["#text"]%>
+					<%= hidden_field_tag 'album_image_large', album["image"][3]["#text"] %>
+					<%= submit_tag("Add") %>
+					<% end %>
+				</div>
+			</p>
+		</div>
+
+
+		<%else%>
+		<div class="col-lg-4">
+
+			<% if album["image"][2]["#text"] != nil %>
+			<img class="img-circle" src="<%= album["image"][2]["#text"] %>"  width="140" height="140">
+			<% else %>
+			<img class="img-circle" src="<%= image_path("rec.png") %>"  width="140" height="140">
+			<% end %>		
+
+			<h2><%= album["name"] %></h2>
+			<p>
+				<strong>BY: </strong><%= album["artist"] %><br>
+				<div>
+					<%= form_tag(:action => "add_album") do %>
+					<%= hidden_field_tag 'album_name', album["name"] %>
+					<%= hidden_field_tag 'album_artist', album["artist"] %>
+					<%= hidden_field_tag 'album_id', album["id"] %>
+					<%= hidden_field_tag 'album_image', album["image"][2]["#text"]%>
+					<%= hidden_field_tag 'album_image_large', album["image"][3]["#text"] %>
+					<%= submit_tag("Add") %>
+					<% end %>
+				</div>
+			</p>
+		</div>
+		<%end%>
+		<%if i==2 || i==5 || i==8 || i==11 %>
+		<br>
+	</div>
+	<%end%>
+	
+	<% end %>
+</div>
+

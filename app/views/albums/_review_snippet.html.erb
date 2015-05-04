@@ -1,6 +1,5 @@
-<%reviews = Review.where(album_id: album_id).limit(5)%>
 <div id="reviewContainer">
-<% if reviews.length > 0 %>
+<% if @reviews.length > 0 %>
   <h2>Reviews:</h2>
   <table class="table">
     <thead>
@@ -8,11 +7,11 @@
       <th>Review Text</th>
       <th>Full Text</th>
     </thead>
-  <% reviews.each do |review| %>
+  <% @reviews.each do |review| %>
     <tr>
-      <td><%= review.user.dj_alias %></td>
+      <td><%= link_to review.user.dj_alias, user_path(review.user) %></td>
       <td><%= truncate(review.text, :length => 100, :separator => ' ') %></td>
-      <td><%= link_to 'Full Text', review_path(review) %></td>
+      <td><%= link_to 'See Full Review', review_path(review) %></td>
     </tr>
   <% end %>
     <tr class="text-center"><td colspan=3><%= link_to 'See All Reviews' %></td></tr>

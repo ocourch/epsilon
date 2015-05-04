@@ -1,6 +1,11 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: [:show, :edit, :update, :destroy]
 
+  def reviews
+    @album = Album.find(params[:id])
+    @reviews = Review.where(album_id: params[:id])
+  end
+  
   def autocomplete
     render json: Album.search(params[:query], fields: [{name: :word_start}])
   end
@@ -13,6 +18,7 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
+    @reviews = Review.where(album_id: params[:id]).order(updated_at: :desc).limit(5)
   end
 
   # GET /albums/new

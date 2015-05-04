@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   
   resources :stations
   
-  resources :reviews
+  resources :reviews, only: [:new, :show]
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -31,7 +31,11 @@ Rails.application.routes.draw do
 
   resources :stations
 
-  resources :users
+  resources :users do
+    collection do
+      get :reviews
+    end
+  end
 
   resources :playlist_songs
 
@@ -46,6 +50,9 @@ Rails.application.routes.draw do
   resources :albums do
     collection do
       get :autocomplete
+    end
+    member do
+      get :reviews
     end
   end
 

@@ -58,9 +58,6 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '~> 1.3.4'
 
-  # Generate mocked data
-  gem 'faker'
-
   # Debugging
   gem 'pry-byebug'
 end
@@ -74,3 +71,5 @@ end
 gem 'react-rails', '~> 1.0'
 gem "compass-rails", github: "Compass/compass-rails", branch: "master"
 gem 'pry'
+# Generate mocked data
+gem 'faker'

@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+
+
 #Add bower support
 gem 'bower-rails'
 #Add hooks for elasticsearch
@@ -7,7 +9,7 @@ gem 'searchkick'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails' 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -56,12 +58,6 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring', '~> 1.3.4'
 
-  # Generate mocked data
-  gem 'faker'
-
-  # Debugging
-  gem 'pry'
-
   # Debugging
   gem 'pry-byebug'
 end
@@ -73,3 +69,7 @@ source 'https://rails-assets.org' do
 end
 
 gem 'react-rails', '~> 1.0'
+gem "compass-rails", github: "Compass/compass-rails", branch: "master"
+gem 'pry'
+# Generate mocked data
+gem 'faker'

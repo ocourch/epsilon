@@ -16,8 +16,6 @@
 !/log/.keep
 /tmp
 
-#lock files
-*.lock
 
 #schema file
 db/schema.rb

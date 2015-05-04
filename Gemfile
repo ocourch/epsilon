@@ -76,4 +76,4 @@ end
 
 gem 'react-rails', '~> 1.0'
 gem "compass-rails", github: "Compass/compass-rails", branch: "master"
-
+gem 'pry'

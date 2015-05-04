@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-# better errors for sprockets - precompile errors when pushing to heroku
-gem 'sprockets_better_errors'
+
+
 #Add bower support
 gem 'bower-rails'
 #Add hooks for elasticsearch
@@ -9,7 +9,7 @@ gem 'searchkick'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use SCSS for stylesheets
-gem 'sass-rails', '5.0.3'
+gem 'sass-rails' 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -75,3 +75,5 @@ source 'https://rails-assets.org' do
 end
 
 gem 'react-rails', '~> 1.0'
+gem "compass-rails", github: "Compass/compass-rails", branch: "master"
+

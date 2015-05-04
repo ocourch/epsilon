@@ -62,9 +62,6 @@ group :development, :test do
   gem 'faker'
 
   # Debugging
-  gem 'pry'
-
-  # Debugging
   gem 'pry-byebug'
 end
 

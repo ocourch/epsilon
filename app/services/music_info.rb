@@ -1,6 +1,6 @@
 require 'json'
 require 'net/http'
-require_relative '../app/models/artist'
+require_relative '../models/artist'
 
 class MusicInfoService
 	def initialize

@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   
   resources :stations
   
-  resources :reviews, only: [:new, :show]
+  resources :reviews, only: [:new, :show, :index]
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -32,8 +32,9 @@ Rails.application.routes.draw do
   resources :stations
 
   resources :users do
-    collection do
+    member do
       get :reviews
+      get :playlists
     end
   end
 

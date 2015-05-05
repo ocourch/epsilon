@@ -1,5 +1,6 @@
 <% Station.first.users.find_each do |d| %>
 
-  <li id="dj_link" class="list-group-item"><a href="users/<%=d.id%>"><%=d.dj_alias %></a></li>
+  <li id="dj_link" class="list-group-item"><a href="users/<%=d.id%>"><%=d.dj_alias %></a>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=d.byline%></li>
 
 <% end %>

@@ -1,6 +1,8 @@
-<h1>Editing Review</h1>
+<div class='text-center'>
+<h1>Editing Review for <%= @review.album.name %></h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Show', @review %> |
 <%= link_to 'Back', reviews_path %>
+</div>

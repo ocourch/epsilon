@@ -24,8 +24,11 @@
       </p>
       
       <p>
-        <strong>Genre:</strong>
-        <%= @album.genre %>
+
+        <% if !@album.genre.empty? %>
+          <strong>Genre:</strong>
+          <%= @album.genre %>
+        <% end %>
       </p>
       
       <p>

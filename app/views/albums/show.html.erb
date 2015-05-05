@@ -18,18 +18,19 @@
         <%= Artist.find(@album.artist_id).name %>
       </p>
       
+      <% if  !@album.released.nil? %>
       <p>
         <strong>Released:</strong>
         <%= @album.released %>
       </p>
+      <% end %>
       
+      <% if  !@album.genre.nil? and !@album.genre.empty? %>
       <p>
-
-        <% if !@album.genre.empty? %>
           <strong>Genre:</strong>
           <%= @album.genre %>
-        <% end %>
       </p>
+      <% end %>
       
       <p>
         <strong>Location:</strong>

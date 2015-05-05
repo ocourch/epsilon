@@ -59,7 +59,7 @@ class LastFmSearchController < ApplicationController
      release_date = tracks_json["album"]["releasedate"]
 
       # Stores release date
-     if (!release_date.empty?)
+     if (!release_date.blank?)
         release = DateTime.parse(release_date = release_date.split(',').first)
 
         this_album.released = release

@@ -1,25 +1,25 @@
 <table id="songTable" class="table">
-  <tr>
+  <thead>
     <th>Time Played</th>
     <th>Song</th>
     <th>Artist</th>
     <th>Album</th>
     <th>Duration</th>
     <th>Location</th>
-  </tr>
+  </thead>
+  <tbody id="songBody"></tbody>
 
 </table>
 <div id="playlistContainer"></div>
 <script>
-  var Playlist = new PlaylistModel({id: <%= @playlist.id%>}).fetch();
-  var Songs = new SongList;
-</script>
-
-<script type="text/template" id="songTemplate">
-  <td>{{time_played}}</td>
-  <td>{{title}}</td>
-  <td>{{artist}}</td>
-  <td>{{album}}</td>
-  <td>{{duration}}</td>
-  <td>{{location}}</td>
+  var Playlist = new PlaylistModel({id: <%= @playlist.id%>}).fetch({
+    success: function() {
+      var Songs = new SongList(Playlist.responseJSON.songs);
+      var SongsView = new SongListView({collection: Songs}).render();
+    },
+    
+    error: function() {
+      console.log("Failed to fetch");
+    }
+  });
 </script>

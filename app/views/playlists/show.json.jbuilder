@@ -3,7 +3,7 @@ json.songs @playlist.playlist_songs do |psong|
   json.title psong.song.title
   json.album psong.song.album.name
   json.artist psong.song.album.artist.name
-  json.time_played = psong.time_played
-  json.location = psong.song.album.location
-  json.duration = psong.song.duration
+  json.time_played psong.time_played
+  json.location psong.song.album.location
+  json.duration (psong.song.duration / 60).to_s + ":" + (psong.song.duration % 60).to_s.rjust(2,'0')
 end

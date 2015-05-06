@@ -67,7 +67,6 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-typeahead.js'
   gem 'rails-assets-backbone'
   gem 'rails-assets-underscore'
-  gem 'rails-assets-handlebars.js'
 end
 
 gem 'react-rails', '~> 1.0'
@@ -75,3 +74,5 @@ gem "compass-rails", github: "Compass/compass-rails", branch: "master"
 gem 'pry'
 # Generate mocked data
 gem 'faker'
+gem 'handlebars_assets'
+

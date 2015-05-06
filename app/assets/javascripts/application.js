@@ -13,7 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require underscore
-//= require handlebars.js
+//= require handlebars
+//= require_tree ./templates
 //= require backbone
 //= require typeahead.js
 //= require bootstrap

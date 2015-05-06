@@ -4,10 +4,12 @@ var PlaylistModel = Backbone.Model.extend({
 
 var SongModel = Backbone.Model.extend();
 
-var SongList = Backbone.Collection.extend();
+var SongList = Backbone.Collection.extend({
+  model: SongModel
+});
 
 var SongListView = Backbone.View.extend({
-  el: $("#songTable"),
+  el: $("#songBody"),
   
   initialize: function() {
     this.collection.bind("add", this.render, this);
@@ -15,7 +17,7 @@ var SongListView = Backbone.View.extend({
   
   render: function() {
     _.each(this.collection.models, function(data) {
-      this.$el.append(new SongView({
+      $("#songBody").append(new SongView({
         model: data
       }).render().el);
     }, this);
@@ -42,8 +44,6 @@ var PlaylistView = Backbone.View.extend({
 var SongView = Backbone.View.extend({
   tagName: 'tr',
   
-  template: Handlebars.compile($("#songTemplate").html()),
-  
   events: {
     "click input": "toggleEdit",
     "click .destroy": "clear"
@@ -51,11 +51,13 @@ var SongView = Backbone.View.extend({
   
   initialize: function() {
     this.listenTo(this.model, "change", this.render);
-    this.listenTo(this.model, "destroy", this.remove)
+    this.listenTo(this.model, "destroy", this.remove);
   },
   
   render: function() {
-    //todo
+    var template = HandlebarsTemplates['songs/show'];
+    this.$el.html(template(this.model.toJSON()));
+    return this;
   },
   
   toggleEdit: function() {

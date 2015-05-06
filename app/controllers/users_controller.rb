@@ -6,6 +6,10 @@ class UsersController < ApplicationController
     @reviews = Review.where(user_id: params[:id])
   end
   
+  def playlists
+    @user = User.find(params[:id])
+    @playlists = Playlist.where(user_id: params[:id])
+  end
   # GET /users
   # GET /users.json
   def index

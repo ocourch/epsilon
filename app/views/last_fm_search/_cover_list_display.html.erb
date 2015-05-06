@@ -16,7 +16,7 @@
 			<p>
 
 				<strong>BY: </strong><%= album["artist"] %><br>
-<<<<<<< HEAD
+
 				
 					<div>
 						<%= form_tag(:action => "add_album") do %>
@@ -31,19 +31,6 @@
 						<% end %>
 					</div>
 				
-=======
-				<div>
-					<%= form_tag(:action => "add_album") do %>
-					<%= hidden_field_tag 'album_name', album["name"] %>
-					<%= hidden_field_tag 'album_artist', album["artist"] %>
-					<%= hidden_field_tag 'album_id', album["id"] %>
-					<%= hidden_field_tag 'album_image', album["image"][2]["#text"]%>
-					<%= hidden_field_tag 'album_image_large', album["image"][3]["#text"] %>
-					<%= hidden_field_tag 'album_release_date', album["releasedate"] %>
-					<%= submit_tag("Add") %>
-					<% end %>
-				</div>
->>>>>>> b4eddeb7a640cddc561682d951e5e1b94c603952
 			</p>
 		</div>
 
@@ -67,12 +54,10 @@
 					<%= hidden_field_tag 'album_id', album["id"] %>
 					<%= hidden_field_tag 'album_image', album["image"][2]["#text"]%>
 					<%= hidden_field_tag 'album_image_large', album["image"][3]["#text"] %>
-<<<<<<< HEAD
-					<%= submit_tag"Add", class: "btn btn-primary" %>
-=======
 					<%= hidden_field_tag 'album_release_date', album["releasedate"] %>
-					<%= submit_tag("Add") %>
->>>>>>> b4eddeb7a640cddc561682d951e5e1b94c603952
+
+					<%= submit_tag"Add", class: "btn btn-primary" %>
+
 					<% end %>
 				</div>
 			</p>

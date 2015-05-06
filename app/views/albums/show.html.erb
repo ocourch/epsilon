@@ -18,20 +18,32 @@
         <%= Artist.find(@album.artist_id).name %>
       </p>
       
+      <% if  !@album.released.nil? %>
       <p>
         <strong>Released:</strong>
         <%= @album.released %>
       </p>
+      <% end %>
       
+      <% if  !@album.genre.nil? and !@album.genre.empty? %>
       <p>
-        <strong>Genre:</strong>
-        <%= @album.genre %>
+          <strong>Genre:</strong>
+          <%= @album.genre %>
       </p>
+      <% end %>
       
-      <p>
-        <strong>Location:</strong>
-        <%= @album.location %>
-      </p>
+      <% if  !@album.location.nil? and !@album.location.empty? %>
+        <p>
+          <strong>Location:</strong>
+          <%= @album.location %>
+        </p>
+      <% else %>
+        <p id="dj_link">
+          <a href="<%=@album.id%>/edit">Please add a location</a>
+        </p>
+      <% end %>
+
+
       <div>
       <span>
       <a href="<%=@album.id%>/edit"><button type="button" class="btn btn-primary">Edit Album Info  </button></a>

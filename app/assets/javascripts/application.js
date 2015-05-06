@@ -12,10 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require typeahead.js
 //= require bootstrap
 //= require react
 //= require react_ujs
-//= require components
+//= require_tree .
 

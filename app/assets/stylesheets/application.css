@@ -14,3 +14,9 @@
  *= require bootstrap
  *= require_tree .
  */
+
+.content-container {
+  width: 1400px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}

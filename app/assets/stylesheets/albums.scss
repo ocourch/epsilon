@@ -12,12 +12,6 @@
   margin-top: 20px;
 }
 
-.content-container {
-  width: 1000px;
-  margin: 0 auto;
-  margin-bottom: 50px;
-}
-
 #albumInfo {
   float: right;
   margin-top: 40px;
@@ -31,6 +25,16 @@
 .image-container {
   float: left;
   margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+.form-container {
+  margin-bottom: 20px;
+  margin-top: -25px;
+}
+
+.button-center {
+  float: center;
 }
 
 #reviewContainer {
@@ -50,10 +54,10 @@
     :visited{
       text-decoration: none;
       color:black;
-    } 
+    }
     
     :hover{
         text-decoration: none;
         background:#5899EB;
-    }       
+    }
 }

@@ -1,8 +1,8 @@
 <div id="searchContainer">
 <div id="search">
-  <input class="form-control" type="text" id="song" name="song" placeholder="Song Title..."/>
-  <input class="form-control" type="text" id="album" name="album" placeholder="Album Name..."/>
-  <input class="form-control" type="text" id="artist" name="artist" placeholder="Artist Name..."/>
+  <input class="form-control song" type="text" name="song" placeholder="Song Title..."/>
+  <input class="form-control album" type="text" name="album" placeholder="Album Name..."/>
+  <input class="form-control artist" type="text" name="artist" placeholder="Artist Name..."/>
 </div>
   <button class="btn btn-large btn-default" id="addSong">Add Song</button>
 </div>
@@ -16,7 +16,7 @@
     }
   });
   song_engine.initialize();
-  $("#song").typeahead(
+  $(".song").typeahead(
     {hint: false},
   {
     displayKey: 'title',
@@ -32,7 +32,7 @@
     }
   });
   album_engine.initialize();
-  $("#album").typeahead(
+  $(".album").typeahead(
     {hint: false},
   {
     displayKey: 'name',
@@ -48,7 +48,7 @@
     }
   });
   artist_engine.initialize();
-  $("#artist").typeahead(
+  $(".artist").typeahead(
     {hint: false},
   {
     displayKey: 'name',

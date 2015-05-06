@@ -28,16 +28,11 @@ class PlaylistsController < ApplicationController
   # POST /playlists.json
   def create
     @playlist = Playlist.new(playlist_params)
+    @playlist.user = current_user
+    @playlist.title = "New Playlist"
 
-    respond_to do |format|
-      if @playlist.save
-        format.html { redirect_to @playlist, notice: 'Playlist was successfully created.' }
-        format.json { render :show, status: :created, location: @playlist }
-      else
-        format.html { render :new }
-        format.json { render json: @playlist.errors, status: :unprocessable_entity }
-      end
-    end
+    @playlist.save
+    respond_with(@playlist)
   end
 
   # PATCH/PUT /playlists/1

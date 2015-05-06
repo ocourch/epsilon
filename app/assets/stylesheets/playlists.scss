@@ -12,7 +12,7 @@
 }
 
 .tt-menu {
-  width: 500px;
+  width: 100%;
   margin-top: 4px;
   padding: 4px 0;
   background-color: #fff;
@@ -59,4 +59,18 @@
 #playlistContainer {
   width: 800px;
   margin: 0 auto;
+}
+
+.edit {
+  display: none;
+}
+
+.editing {
+  input.edit {
+    display: block;
+    width: 100%;
+  }
+  .view {
+    display: none;
+  }
 }

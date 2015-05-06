@@ -45,8 +45,9 @@ var SongView = Backbone.View.extend({
   tagName: 'tr',
   
   events: {
-    "click input": "toggleEdit",
-    "click .destroy": "clear"
+    "click .view": "edit",
+    "click .destroy": "clear",
+    "blur .edit": "close"
   },
   
   initialize: function() {
@@ -60,8 +61,19 @@ var SongView = Backbone.View.extend({
     return this;
   },
   
-  toggleEdit: function() {
-    //todo
+  edit: function(e) {
+    this.input=$(e.target).siblings('input');
+    $(e.target).parent().addClass("editing");
+    this.input.focus();
+  },
+  
+  close: function() {
+    var value = this.input.val();
+      if (!value) {
+        this.clear();
+      } else {
+        this.$el.find(".editing").removeClass("editing");
+      }
   },
   
   clear: function() {

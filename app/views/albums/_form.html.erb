@@ -19,32 +19,31 @@
       <%else%>
         <img src="http://cliparts.co/cliparts/kcK/n5L/kcKn5LqAi.png"  width="300" height="300">
       <%end%>
+  </div>
+
+  <div class="form-container">
+    <h2><%= @album.name %></h2>
+    <p>by</p>
+    <h3><%= @album.artist.name %></h3>
+
+    <div class="form-group">
+      <%= f.label :location %><br>
+      <span style="color:black"><%= f.text_field :location %></span>
     </div>
 
-  <p>Name: <%= @album.name %></p>
-  <p>Artist: <%= @album.artist.name %></p>
+    <div class="form-group">
+      <%= f.label :genre %><br>
+      <span style="color:black"><%= f.text_field :genre %></span>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :location %><br>
-    <span style="color:black"><%= f.text_field :location %></span>
+    <div class="form-group">
+      <%= f.label :released %><br>
+      <span style="color:black"><%= f.date_select(:released, include_blank: true) %></span>
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= f.label :genre %><br>
-    <span style="color:black"><%= f.text_field :genre %></span>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :released %><br>
-    <span style="color:black"><%= f.date_select(:released, include_blank: true) %></span>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :image_url %><br>
-    <span style="color:black"><%= f.text_field :image_url %></span>
-  </div>
+  <br><br>
+    <div class="actions">
+      <span style="color:black"><%= f.submit %></span>
+    </div>
   
-  <div class="actions">
-    <span style="color:black"><%= f.submit %></span>
-  </div>
 <% end %>

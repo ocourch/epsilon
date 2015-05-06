@@ -35,11 +35,14 @@
         </table>
       </div>
       <div class="tab" id="tab4">
+        <div style="margin:20px 350px 1px 300px">
         <ul class="list-group">
           <%= render partial:'playlist_list' %>
         </ul>
+        </div>
       </div>
       <div class="tab" id="tab5">
+      <div id="dj_link"style="text-align:center">
         Name: <%=current_user.first_name %>
         <%=current_user.last_name %><br>
         <a href="mailto:<%=current_user.email %>">Email: <%=current_user.email %></a>

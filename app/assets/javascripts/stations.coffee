@@ -2,15 +2,15 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-`$(document).on('page:load', function() {
-    jQuery('.tabs .tab-links a').on('click', function(e)  {
-        var currentAttrValue = jQuery(this).attr('href');
+`$().function() {
+    $('.tabs .tab-links a').on('click', function(e)  {
+        var currentAttrValue = $(this).attr('href');
  
         // Show/Hide Tabs
-        jQuery('.tabs ' + currentAttrValue).fadeIn(400).siblings().hide();
+        $('.tabs ' + currentAttrValue).fadeIn(400).siblings().hide();
  
         // Change/remove current tab to active
-        jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+        $(this).parent('li').addClass('active').siblings().removeClass('active');
  
         e.preventDefault();
     });

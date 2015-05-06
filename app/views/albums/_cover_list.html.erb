@@ -1,95 +1,36 @@
-<div class="row">
-	<% @albums.order("created_at DESC").limit(3).each_with_index do |a, i| %>	
+<% total = @albums.size %>
+<% i = 0  %>
+<% while i<total %>
 
-	<div class="col-lg-4">
-		<a href="/albums/<%=a.id%>" class="link3" target="_blank">			
-			<% if a.image_url != nil %>
-			<img class="img-circle" src="<%=a.image_url%>"  width="140" height="140">
-			<% else %>
-			<img class="img-circle" src="<%= image_path("rec.png") %>"  width="140" height="140">
-			<% end %>
-		</a>
-		
-		<h2><%= a.name %></h2>
-		<p>
-			<strong>BY: </strong><%= Artist.find(a.artist_id).name %><br>
-			<strong>LOCATION: </strong><%= a.location %><br>
-			<strong># SONGS: </strong><%= a.songs.size %>
 
-		</p>
+
+	<div class="row">
+		<% @albums.offset(i).order("created_at DESC").limit(3).each_with_index do |a, i| %>
+		<div class="col-lg-4">
+			<a href="/albums/<%=a.id%>" class="link3" target="_blank">
+				<% if a.image_url != nil %>
+				<img class="img-circle" src="<%=a.image_url%>"  width="140" height="140">
+				<% else %>
+				<img class="img-circle" src="<%= image_path("rec.png") %>"  width="140" height="140">
+				<% end %>
+			</a>
+			<h2><%= a.name %></h2>
+			<p>
+				<strong>BY: </strong><%= Artist.find(a.artist_id).name %><br>
+				<strong>LOCATION: </strong><%= a.location %><br>
+				<strong># SONGS: </strong><%= a.songs.size %>
+
+			</p>
+		</div>
+
+		<% end %>
 	</div>
 
-	
-	<% end %>
-</div>
+<% i += 3 %>
+<% end %>
 
-<div class="row">
-	<% @albums.offset(3).order("created_at DESC").limit(3).each_with_index do |a, i| %>
-	<div class="col-lg-4">
-		<a href="/albums/<%=a.id%>" class="link3" target="_blank">
-			<% if a.image_url != nil %>
-			<img class="img-circle" src="<%=a.image_url%>"  width="140" height="140">
-			<% else %>
-			<img class="img-circle" src="<%= image_path("rec.png") %>"  width="140" height="140">
-			<% end %>
-		</a>
-		<h2><%= a.name %></h2>
-		<p>
-			<strong>BY: </strong><%= Artist.find(a.artist_id).name %><br>
-			<strong>LOCATION: </strong><%= a.location %><br>
-			<strong># SONGS: </strong><%= a.songs.size %>
 
-		</p>
-	</div>
 
-	<% end %>
-</div>
-
-<div class="row">
-	<% @albums.offset(6).order("created_at DESC").limit(3).each_with_index do |a, i| %>
-
-	<div class="col-lg-4">
-		<a href="/albums/<%=a.id%>" class="link3" target="_blank">
-			<% if a.image_url != nil %>
-			<img class="img-circle" src="<%=a.image_url%>"  width="140" height="140">
-			<% else %>
-			<img class="img-circle" src="<%= image_path("rec.png") %>"  width="140" height="140">
-			<% end %>
-		</a>
-		<h2><%= a.name %></h2>
-		<p>
-			<strong>BY: </strong><%= Artist.find(a.artist_id).name %><br>
-			<strong>LOCATION: </strong><%= a.location %><br>
-			<strong># SONGS: </strong><%= a.songs.size %>
-
-		</p>
-	</div>
-
-	<% end %>
-</div>
-
-<div class="row">
-	<% @albums.offset(9).order("created_at DESC").limit(3).each_with_index do |a, i| %>
-
-	<div class="col-lg-4">
-		<a href="/albums/<%=a.id%>" class="link3" target="_blank">
-			<% if a.image_url != nil %>
-			<img class="img-circle" src="<%=a.image_url%>"  width="140" height="140">
-			<% else %>
-			<img class="img-circle" src="<%= image_path("rec.png") %>"  width="140" height="140">
-			<% end %>
-		</a>
-		<h2><%= a.name %></h2>
-		<p>
-			<strong>BY: </strong><%= Artist.find(a.artist_id).name %><br>
-			<strong>LOCATION: </strong><%= a.location %><br>
-			<strong># Songs: </strong><%= a.songs.size %>
-
-		</p>
-	</div>
-
-	<% end %>
-</div>
 
 
 

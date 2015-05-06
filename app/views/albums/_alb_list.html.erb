@@ -1,4 +1,4 @@
-<% @albums.order(locals[:sortby] + " ASC").each do |a| %>
+<% @albums.order("name ASC").each do |a| %>
 	<tbody>
       <tr>        
         <td id="list_link"><a href="/albums/<%=a.id%>"><%=a.name%></a></td>

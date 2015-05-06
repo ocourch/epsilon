@@ -1,5 +1,35 @@
+<div class='content-container text-center'>
 <h1>New Review</h1>
+
+<div id="search">
+  <label for="albumSelect">Select Album:</label>
+  <br/>
+  <input class="form-control" type="text" id="albumSelect" name="albumSelect" placeholder="Album Name..."/>
+</div>
 
 <%= render 'form' %>
 
 <%= link_to 'Back', reviews_path %>
+</div>
+<script id='musicTypeahead'>
+  var album_engine = new Bloodhound({
+    datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.name); },
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    remote: {
+      url: '/albums/autocomplete?query=%QUERY',
+      wildcard: '%QUERY'
+    }
+  });
+  album_engine.initialize();
+  $("#albumSelect").typeahead(
+    {hint: false},
+    {
+      displayKey: 'name',
+      source: album_engine.ttAdapter()
+    }
+  ).on('typeahead:selected', function (obj, datum) {
+    $("#review_album_id").val(datum.id);
+  }).on('blur', function(obj, datum) {
+    console.log(datum.name);
+  });
+</script>

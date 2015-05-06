@@ -1,0 +1,19 @@
+<h1>Reviews for <%=@user.dj_alias%></h1>
+<%= link_to 'New Review', new_review_path, class: 'btn btn-default btn-primary' %>
+
+<table class='table table-striped'>
+  <thead>
+    <th>Created</th>
+    <th>Album</th>
+    <th colspan="1"></th>
+  </thead>
+  <tbody>
+<% @reviews.each do |review| %>
+  <tr>
+    <td><%= review.created_at %></td>
+    <td><%= review.album.name %></td>
+    <td><%= link_to 'More info', review %></td>
+  </tr>
+<% end %>
+  </tbody>
+</table>

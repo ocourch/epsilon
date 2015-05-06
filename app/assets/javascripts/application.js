@@ -12,9 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require underscore
+//= require backbone
 //= require typeahead.js
 //= require bootstrap
-//= require react
-//= require react_ujs
 //= require_tree .
 

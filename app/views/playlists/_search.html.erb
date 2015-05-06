@@ -55,8 +55,16 @@
     source: artist_engine.ttAdapter()
   });
   
-  $("addSong").click(function(e) {
-    e.preventDefault();
+  $("#addSong").click(function(e) {
+    var model = {};
+    model.title = $("#search input.song").val();
+    model.album = $("#search input.album").val();
+    model.artist = $("#search input.artist").val();
+    $("#search input").val("");
+    var data = new SongModel(model);
+    $("#songBody").append(new SongView({
+        model: data
+      }).render().el);
     
   })
 </script>

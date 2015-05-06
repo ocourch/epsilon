@@ -2,10 +2,13 @@
   <div class="tabs">
     <ul class="tab-links" id="please_center">
       <li class="active">
-        <a href="#tab1">Recent Albums</a>
+        <a href="#tab1">Recently Added Albums</a>
       </li>
       <li>
         <a href="#tab2">Hottest Tracks</a>
+      </li>
+      <li>
+        <a href="#tab3">My Reviews</a>
       </li>
       <li>
         <a href="#tab4">My Playlists</a>
@@ -18,9 +21,9 @@
 
       <div class="tab active" id="tab1">
         <div id="a_display">
-        <%= render :partial => 'stations/recent_albums' %>
+          <%= render :partial => 'stations/recent_albums' %>
         </div>
-      </div>
+      </div>      
 
       <div class="tab" id="tab2">
         <table class="table table-striped">
@@ -34,19 +37,38 @@
           <%= render :partial => 'stations/hottest_tracks' %>
         </table>
       </div>
+
+      <div class="tab" id="tab3">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Album</th>
+              <th>Text</th>
+            </tr>
+          </thead>
+          <%= render partial:'review_list' %>
+        </table>
+      </div>
+
+
       <div class="tab" id="tab4">
         <div style="margin:20px 350px 1px 300px">
-        <ul class="list-group">
-          <%= render partial:'playlist_list' %>
-        </ul>
+          <ul class="list-group">
+            <%= render partial:'playlist_list' %>
+          </ul>
         </div>
       </div>
       <div class="tab" id="tab5">
-      <div id="dj_link"style="text-align:center">
-        Name: <%=current_user.first_name %>
-        <%=current_user.last_name %><br>
-        <a href="mailto:<%=current_user.email %>">Email: <%=current_user.email %></a>
-      </div>
-    </div>
-  </div>
-</div>
+        <div id="ubio">
+         <strong> Name </strong><br>
+         <%=current_user.first_name %> <%=current_user.last_name %><br>
+         
+         <strong>Email </strong><br>
+         <%=current_user.email %><br><br>
+         
+         <strong>About Me </strong><br>
+         <%=current_user.bio%>
+       </div>
+     </div>
+   </div>
+ </div>

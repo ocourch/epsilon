@@ -1,4 +1,4 @@
-<% current_user.reviews.find_each do |r| %>
+<% @user.reviews.find_each do |r| %>
 	<tbody>
       <tr>
         <td id="dj_link"><a href="../albums/<%=r.album_id%>"><%= Album.find(r.album_id).name %></a></td>

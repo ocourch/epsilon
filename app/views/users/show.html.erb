@@ -11,13 +11,11 @@
         <table class="table table-striped">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Playlist</th>
-              <th>Review</th>
-              <th>Rating</th>
+              <th>Album</th>
+              <th>Text</th>
             </tr>
           </thead>
-          <%# render partial:'recent_albums' %>
+          <%= render partial:'review_list_show' %>
         </table>
       </div>
       <div id="tab2" "make_small_recent" class="tab">
@@ -33,16 +31,22 @@
         </table>
       </div>
       <div id="tab4" "make_small_recent" class="tab">
-        <ul class="list-group">
-          <%= render partial:'playlist_list_other' %>
-        </ul>
+        <div style="margin:20px 350px 1px 300px">
+          <ul class="list-group">
+            <%= render partial:'playlist_list_other' %>
+          </ul>
+        </div>
       </div>
       <div id="tab5" class="tab">
-        <div id="dj_link"style="text-align:center font-size:">
-        Name: <%=current_user.first_name %>
-        <%=current_user.last_name %><br>
-        <a href="mailto:<%=current_user.email %>">Email: <%=current_user.email %></a>
-      </div>
+        <div id="ubio">
+          <strong> Name </strong><br>
+          <%=@user.first_name %> <%=@user.last_name %><br>
+
+          <strong>Email </strong><br> <p id="dj_link" style="font-size:1em"><a href="mailto:<%=current_user.email %>"><%=@user.email %></a></p><br><br>
+
+          <strong>About Me </strong><br>
+          <%=@user.bio%>
+        </div>
       </div>
     </div>
   </div>

@@ -3,6 +3,22 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+#ubio{
+  text-align:center;
+  font-size:1.4em;
+  margin: 20px 80px 20px 10px;
+  line-height: 200%;
+
+  a{
+  text-decoration: none;
+    
+    a:hover{
+        text-decoration: none;
+        background:#5899EB;
+    } 
+  }
+}
+
 
 #make_small_bio{
     margin-left: 150px;
@@ -18,7 +34,7 @@
 
 
 #please_center{
-    margin-left: 300px;
+    margin-left: 150px;
     margin-right: auto;
       
 }

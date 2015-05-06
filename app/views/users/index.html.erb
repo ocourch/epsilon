@@ -8,6 +8,9 @@
         <a href="#tab2">Hottest Tracks</a>
       </li>
       <li>
+        <a href="#tab3">My Reviews</a>
+      </li>
+      <li>
         <a href="#tab4">My Playlists</a>
       </li>
       <li>
@@ -20,7 +23,7 @@
         <div id="a_display">
           <%= render :partial => 'stations/recent_albums' %>
         </div>
-      </div>
+      </div>      
 
       <div class="tab" id="tab2">
         <table class="table table-striped">
@@ -34,6 +37,20 @@
           <%= render :partial => 'stations/hottest_tracks' %>
         </table>
       </div>
+
+      <div class="tab" id="tab3">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Album</th>
+              <th>Text</th>
+            </tr>
+          </thead>
+          <%= render partial:'review_list' %>
+        </table>
+      </div>
+
+
       <div class="tab" id="tab4">
         <div style="margin:20px 350px 1px 300px">
           <ul class="list-group">

@@ -4,7 +4,7 @@
   <input class="form-control" type="text" id="artist" name="artist" placeholder="Artist Name..."/>
   <button class="btn btn-large btn-default" id="addSong">Add Song</button>
 </div>
-<script>
+<script id='musicTypeahead'>
   var song_engine = new Bloodhound({
     datumTokenizer: function(d) { return d.title; },
     queryTokenizer: Bloodhound.tokenizers.whitespace,

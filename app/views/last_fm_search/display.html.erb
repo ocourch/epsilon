@@ -1,8 +1,8 @@
 
-<h2>Search results for "<%= @query %>":</h2>
+<h2 style="text-align:center">Search results for "<%= @query %>":</h2>
 
 <% if @albums %>
-<div class="col-md-12">
+<div class="col-md-12" style="margin:100px">
   <%= render partial:'cover_list_display' %>
 </div>
 <% end %>

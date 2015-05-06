@@ -5,16 +5,26 @@
 #album_link{
     
     div a:link{
+      animation-play-state: paused;
 
     }
     div a:hover{
         text-decoration: none;
         background-color: #FF704D;
+        animation-play-state: running;
     }
 
     :visited{
         text-decoration:none;
     }
+}
+
+#sbio{
+  text-align: center;
+  text-indent: 40px;
+  font-size: 1.4em;
+  margin: 20px 80px 20px 80px;
+  line-height: 200%;
 }
 
 .link2
@@ -44,32 +54,35 @@
 
 .link3
 {
-   border: solid 2px #aaa;
+   /*border: solid 2px #aaa;
    border-radius: 3x;
    -moz-border-radius: 3px;
    -webkit-border-radius: 3px;
    background-color: #96BFF2;
    color: #ffffff;
    text-decoration: none;
-   font-weight: bold;
+   font-weight: bold;*/
    margin: 10px 3px 10px 3px;
    padding: 3px;
    display: inline-block;
+   
 
 }
 
 .link3:hover{
-   border: solid 2px #aaa;
-   border-radius: 3x;
+   /*border: solid 2px #aaa;
+   border-radius: 3x; */
    -moz-border-radius: 3px;
    -webkit-border-radius: 3px;
-   background-color: #2e7fe6;
-   color: #ffffff;
+   background-color: white;
+   /*color: #ffffff;
    text-decoration: none;
-   font-weight: bold;
+   font-weight: bold; */
    margin: 10px 3px 10px 3px;
    padding: 3px;
    display: inline-block;
+   -webkit-animation: infinite pulse .7s;
+    animation: infinite pulse .7s;
    
 }
 

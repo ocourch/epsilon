@@ -41,3 +41,19 @@
   text-align: center;
   margin: 6px auto;
 }
+
+#list_link{
+
+    
+    text-decoration: none;
+
+    :visited{
+      text-decoration: none;
+      color:black;
+    } 
+    
+    :hover{
+        text-decoration: none;
+        background:#5899EB;
+    }       
+}

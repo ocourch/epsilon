@@ -1,19 +1,62 @@
-<p id="notice"><%= notice %></p>
+<div class='content-container'>
+	<div class="top-info">
+		<div class="image-container">
+			<% if Album.find(@review.album_id).image_url != nil %>
+			<img src="<%=Album.find(@review.album_id).image_url_large%>"  width="300" height="300">
+			<%else%>
+			<img src="http://cliparts.co/cliparts/kcK/n5L/kcKn5LqAi.png"  width="450" height="400">
+			<%end%>
+		</div>
+		<div id='albumInfo'>
+			<p>
+				<strong>Album:</strong>
+				<%= Album.find(@review.album_id).name %>
+			</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @review.user.dj_alias %>
-</p>
+			<p>
+				<strong>Artist:</strong>
+				<%= Artist.find(Album.find(@review.album_id).artist_id).name %>
+			</p>
 
-<p>
-  <strong>Album:</strong>
-  <%= @review.album.name %>
-</p>
+			<% if  !Album.find(@review.album_id).released.nil? %>
+			<p>
+				<strong>Released:</strong>
+				<%= Album.find(@review.album_id).released %>
+			</p>
+			<% end %>
 
-<p>
-  <strong>Text:</strong>
-  <%= @review.text %>
-</p>
+			<% if  !Album.find(@review.album_id).genre.nil? and !Album.find(@review.album_id).genre.empty? %>
+			<p>
+				<strong>Genre:</strong>
+				<%= Album.find(@review.album_id).genre %>
+			</p>
+			<% end %>
 
-<%= link_to 'Edit', edit_review_path(@review) %>
-<%= link_to 'Back', reviews_album_path(@review.album_id) %>
+			<% if  !Album.find(@review.album_id).location.nil? and !Album.find(@review.album_id).location.empty? %>
+			<p>
+				<strong>Location:</strong>
+				<%= Album.find(@review.album_id).location %>
+			</p>
+
+			<% end %>
+
+<br>
+
+
+			<div>
+				<p id="notice"><%= notice %></p>
+
+				<p>
+					<strong>User: </strong>
+					<%= @review.user.dj_alias %>
+				</p>
+
+				<p>
+					<strong>Text: </strong>
+					<%= @review.text %>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+

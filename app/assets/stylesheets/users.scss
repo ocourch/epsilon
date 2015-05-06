@@ -6,8 +6,17 @@
 #ubio{
   text-align:center;
   font-size:1.4em;
-  margin: 20px 80px 20px 80px;
+  margin: 20px 80px 20px 10px;
   line-height: 200%;
+
+  a{
+  text-decoration: none;
+    
+    a:hover{
+        text-decoration: none;
+        background:#5899EB;
+    } 
+  }
 }
 
 

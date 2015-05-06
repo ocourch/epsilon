@@ -18,7 +18,7 @@
 
       <div class="tab active" id="tab1">
         <div id="a_display">
-        <%= render :partial => 'stations/recent_albums' %>
+          <%= render :partial => 'stations/recent_albums' %>
         </div>
       </div>
 
@@ -36,21 +36,22 @@
       </div>
       <div class="tab" id="tab4">
         <div style="margin:20px 350px 1px 300px">
-        <ul class="list-group">
-          <%= render partial:'playlist_list' %>
-        </ul>
+          <ul class="list-group">
+            <%= render partial:'playlist_list' %>
+          </ul>
         </div>
       </div>
       <div class="tab" id="tab5">
-      <div id="ubio">
-       <strong> Name </strong><br>
-       <%=current_user.first_name %> <%=current_user.last_name %><br>
-        
-        <strong>Email </strong><br>
-        <%=current_user.email %><br><br>
-        <strong>About Me </strong><br>
-        <%=current_user.bio%>
-      </div>
-    </div>
-  </div>
-</div>
+        <div id="ubio">
+         <strong> Name </strong><br>
+         <%=current_user.first_name %> <%=current_user.last_name %><br>
+         
+         <strong>Email </strong><br>
+         <%=current_user.email %><br><br>
+         
+         <strong>About Me </strong><br>
+         <%=current_user.bio%>
+       </div>
+     </div>
+   </div>
+ </div>

@@ -29,8 +29,7 @@ class PlaylistsController < ApplicationController
   def create
     @playlist = Playlist.new(playlist_params)
     @playlist.user = current_user
-    @playlist.title = params[:show_name] + ' on ' + params[:created_at].to_date.to_s
-
+    @playlist.title = @playlist.show_name
     @playlist.save
     respond_with(@playlist)
   end

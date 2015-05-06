@@ -8,6 +8,18 @@
     <th>Location</th>
   </tr>
 
-<%= react_component('Song', {title: 'Test Song', artist:'Tinashe', album: '2 On - Single'}, {tag:'tr'}) %>
 </table>
 <div id="playlistContainer"></div>
+<script>
+  var Playlist = new PlaylistModel({id: <%= @playlist.id%>}).fetch();
+  var Songs = new SongList;
+</script>
+
+<script type="text/template" id="songTemplate">
+  <td>{{time_played}}</td>
+  <td>{{title}}</td>
+  <td>{{artist}}</td>
+  <td>{{album}}</td>
+  <td>{{duration}}</td>
+  <td>{{location}}</td>
+</script>

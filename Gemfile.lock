@@ -172,6 +172,7 @@ GEM
       rails-assets-underscore (>= 1.5.0)
     rails-assets-bootstrap (3.3.4)
       rails-assets-jquery (>= 1.9.1)
+    rails-assets-handlebars.js (3.0.3)
     rails-assets-jquery (2.1.4)
     rails-assets-typeahead.js (0.11.1)
       rails-assets-jquery (>= 1.7)
@@ -283,6 +284,7 @@ DEPENDENCIES
   rails (= 4.2.0)
   rails-assets-backbone!
   rails-assets-bootstrap!
+  rails-assets-handlebars.js!
   rails-assets-typeahead.js!
   rails-assets-underscore!
   rails_admin

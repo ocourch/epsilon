@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  def reviews
+    @user = User.find(params[:id])
+    @reviews = Review.where(user_id: params[:id])
+  end
+  
   # GET /users
   # GET /users.json
   def index

@@ -3,7 +3,7 @@
 <head>
   <title>Epsilon</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
    <link rel="stylesheet" href="animate.min.css">
 </head>
@@ -16,8 +16,9 @@
 <% end %>
 <%= render 'stations/navbar' %>
 
-<%= yield %>
-
+<div class='content-container'>
+  <%= yield %>
+</div>
 
 </body>
 </html>

@@ -38,9 +38,11 @@
         </ul>
       </div>
       <div id="tab5" class="tab">
-        Name: <%=@user.first_name %> <%=@user.last_name %>
-        <br>
-        Email: <%=@user.email %>
+        <div id="dj_link"style="text-align:center font-size:">
+        Name: <%=current_user.first_name %>
+        <%=current_user.last_name %><br>
+        <a href="mailto:<%=current_user.email %>">Email: <%=current_user.email %></a>
+      </div>
       </div>
     </div>
   </div>

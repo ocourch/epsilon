@@ -78,6 +78,8 @@ s.users << user1
 s.users << user2
 s.users << user3
 
+Review.create(album_id: 1, user_id: 2, text: "test review")
+
 # Resets table auto increment ID so seeding doesn't break everything
 ActiveRecord::Base.connection.tables.each do |table|
   result = ActiveRecord::Base.connection.execute("SELECT id FROM #{table} ORDER BY id DESC LIMIT 1") rescue ( puts "Warning: not procesing table #{table}. Id is missing?" ; next )

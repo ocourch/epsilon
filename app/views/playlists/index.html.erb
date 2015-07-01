@@ -15,7 +15,7 @@
     <% current_user.station.playlists.order(played_at: :desc).each do |playlist| %>
       <tr>
         <td><%= playlist.played_at %></td>
-        <td><%= link_to playlist.title, playlist %></td>
+        <td id="dj_link"><%= link_to playlist.title, playlist %></td>
         <td><%= playlist.show_name %></td>
         <td><%= link_to 'Delete', playlist, method: :delete, data: { confirm: 'Are you sure you want to delete this playlist?' } %></td>
       </tr>

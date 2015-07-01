@@ -1,0 +1,16 @@
+/home/oscar/.rvm/rubies/ruby-2.1.5/bin/ruby -r ./siteconf20150401-1724-1rlv3aq.rb extconf.rb 
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling context.c
+compiling breakpoint.c
+compiling byebug.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.so
+
+make "DESTDIR=" install
+/usr/bin/install -m 0755 byebug.so ./.gem.20150401-1724-17zpo15/byebug
+installing default byebug libraries

@@ -1,0 +1,16 @@
+/home/oscar/.rvm/rubies/ruby-1.9.3-p551/bin/ruby -r ./siteconf20150401-14525-1j5ae6g.rb extconf.rb 
+creating Makefile
+
+make  clean
+
+make
+compiling crypt.c
+compiling crypt_gensalt.c
+compiling bcrypt_ext.c
+compiling wrapper.c
+compiling crypt_blowfish.c
+linking shared-object bcrypt_ext.so
+
+make  install
+/usr/bin/install -m 0755 bcrypt_ext.so .gem.20150401-14525-mq7kr1
+installing default bcrypt_ext libraries

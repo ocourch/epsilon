@@ -1,0 +1,12 @@
+/home/oscar/.rvm/rubies/ruby-1.9.3-p551/bin/ruby -r ./siteconf20150401-14525-1ta0hie.rb extconf.rb 
+
+make  clean
+make: *** No rule to make target `clean'.  Stop.
+
+make
+echo "Nada."
+Nada.
+
+make  install
+echo "Nada."
+Nada.

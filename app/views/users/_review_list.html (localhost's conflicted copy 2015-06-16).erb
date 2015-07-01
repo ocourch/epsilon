@@ -1,0 +1,8 @@
+<% User.first.reviews.find_each do |r| %>
+	<tbody>
+      <tr>
+        <td><%= Album.find(r.album_id) %></td>
+        <td><%= r.text %></td>
+      </tr>
+    </tbody>
+<% end %>

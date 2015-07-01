@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../favicon.ico">
+
+    <title>Simple Display</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="navbar-fixed-top.css" rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../stations">Epsilon</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="../users">DJs</a></li>
+            <li><a href="#about">Playlists</a></li>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="../last_fm_search/search/">Search</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+<body style="text-align:center">
+
+<h2>Search results for "<%= @query %>":</h2>
+
+<% if @albums %>
+<h3>Albums:</h3>
+
+
+<div class="col-md-12" id="custom_display">           
+  <table class="table">
+    <thead>
+    	<tr>
+    		<td><h1>Art</h1></td>
+    		<td><h1>Name</h1></td>
+    		<td><h1>Artist</h1></td>
+    		<td><h1>Add to Library</h1></td>
+    	</tr>
+    </thead>
+	 <% @albums.each do |album|%>
+   <tbody>
+  	 <tr>
+  		<td><img src="<%= album["image"][2]["#text"] %>"></td>
+  		<td><%= album["name"] %></td>
+  		<td><%= album["artist"] %></td>
+  		<td id="mybutton">
+  			<%= form_tag(:action => "add_track") do %>
+  			<%= hidden_field 'album_name', album["name"] %>
+  			<%= hidden_field 'album_artist', album["artist"] %>
+  			<%= hidden_field 'album_id', album["id"] %>
+  			<%= submit_tag("Add") %>
+  			<% end %>
+  		</td>
+  	 </tr>
+    </tbody>
+	<% end %>
+</table>
+</div>
+<% end %>
+
+
+<% if @artists %>
+<h3>Artists:</h3>
+<table border = "1">
+	<tr>
+		<td>Name</td>
+		<td>Art</td>
+	</tr>
+	<% @artists.each do |artist| %>
+	<tr>
+		<td><%= artist["name"] %></td>
+		<td><img src="<%= artist["image"][1]["#text"] %>"></td>
+	</tr>
+	<% end %>
+</table>
+<% end %>
+
+
+<% if @tracks %>
+<h3>Tracks:</h3>
+<table border = "1">
+	<tr>
+		<td>Name</td>
+		<td>Artist</td>
+	</tr>
+	<% @tracks.each do |track|%>
+	<tr>
+		<td><%= track["name"] %></td>
+		<td><%= track["artist"] %></td>
+	</tr>
+	<% end %>
+</table>
+
+<% end %>
+</body>
+
+
+
